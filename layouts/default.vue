@@ -1,0 +1,21 @@
+<template lang="pug">
+.layout
+	.content
+		Nuxt
+</template>
+
+<script>
+export default {
+}
+</script>
+
+<style lang="scss" scoped>
+.layout {
+	overflow: hidden;
+}
+
+.content {
+	max-width: $max-width;
+	margin: 0 auto;
+}
+</style>
