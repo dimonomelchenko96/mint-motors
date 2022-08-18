@@ -27,6 +27,18 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+a.nuxt-link-exact-active {
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: d(8);
+    svg {
+        path {
+            fill: #fff;
+        }
+    }
+    p {
+        color: #fff;
+    }
+}
 .header {
     display: flex;
     justify-content: space-between;
@@ -60,16 +72,6 @@ export default {
                 }
 
                 &:hover {
-                    background: rgba(0, 0, 0, 0.3);
-                    border-radius: d(8);
-                    svg {
-                        path {
-                            fill: #fff;
-                        }
-                    }
-                    p {
-                        color: #fff;
-                    }
                 }
             }
         }

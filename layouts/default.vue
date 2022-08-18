@@ -33,7 +33,7 @@ export default {
     padding: d(10) d(38) d(50);
     &__header {
         position: absolute;
-        top: 0;
+        top: d(10);
         width: calc(100% - d(76));
     }
 }
