@@ -19,45 +19,43 @@
 import CardHome from '../components/CardHome';
 
 export default {
-	name: 'IndexPage',
-	data() {
-		return {
-			cards: [
-				{
-					id: 1,
-					name: 'Garage',
-					numderOfCars: '04',
-					icon: 'garage_icon',
-					img: 'avto_big.png'
+    name: 'IndexPage',
+    data() {
+        return {
+            cards: [
+                {
+                    id: 1,
+                    name: 'Garage',
+                    numderOfCars: '04',
+                    icon: 'garage_icon',
+                    img: 'avto_big.png',
+                },
+                {
+                    id: 2,
+                    name: 'NFT Market',
+                    icon: 'market_icon',
+                    img: 'avto_right.png',
+                },
+                {
+                    id: 3,
+                    name: 'Finance',
+                    icon: 'finance_icon',
+                    img: 'finance.png',
+                },
+                {
+                    id: 4,
+                    name: 'Start Race',
+                    img: 'avto_big.png',
+                    arrow: 'arrow_right.svg',
+                },
+            ],
+        };
+    },
 
-				},
-				{
-					id: 2,
-					name: 'NFT Market',
-					icon: 'market_icon',
-					img: 'avto_right.png'
-				},
-				{
-					id: 3,
-					name: 'Finance',
-					icon: 'finance_icon',
-					img: 'finance.png'
-				},
-				{
-					id: 4,
-					name: 'Start Race',
-					img: 'avto_big.png',
-					arrow: 'arrow_right.svg'
-				},
-			]
-		}
-	},
-
-	components: {
-		CardHome,
-	}
-
-}
+    components: {
+        CardHome,
+    },
+};
 </script>
 
 <style lang="scss" scoped></style>

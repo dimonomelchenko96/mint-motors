@@ -28,54 +28,40 @@
 
 <script>
 export default {
-	props:[
-		"id",
-		"name",
-		"numderOfCars",
-		"icon",
-		"img1",
-		"arrow"
-	],
+    props: ['id', 'name', 'numderOfCars', 'icon', 'img1', 'arrow'],
 
-	name: 'CardHome',
+    name: 'CardHome',
 
-	data() {
-		return {
-		};
-	},
-	methods: {
-
-	},
+    data() {
+        return {};
+    },
+    methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .card-home {
-	background-color: #4f4f4f;
-	&__icon {
-		width: 40px;
-		height: 40px;
+    background-color: #4f4f4f;
+    &__icon {
+        width: 40px;
+        height: 40px;
 
-		img {
-			width: 100%;
-			height: 100%;
-		}
-	}
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
 
-	&__img {
+    &__img {
+    }
 
-	}
+    &__block {
+    }
 
-	&__block {
+    &__title {
+    }
 
-	}
-
-	&__title {
-
-	}
-
-	&__number {
-
-	}
+    &__number {
+    }
 }
 </style>
