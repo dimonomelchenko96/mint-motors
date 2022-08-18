@@ -40,7 +40,9 @@ export default {
     //     filename: ".env"
     //   }
     // ],
-    '@nuxtjs/style-resources'
+    '@nuxtjs/style-resources',
+    '@nuxtjs/svg',
+    '@nuxt/image',
   ],
   modules: [
     // '@nuxtjs/axios',
