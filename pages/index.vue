@@ -1,8 +1,11 @@
 <template lang="pug">
+
 </template>
 
 <script>
 export default {
-  name: 'IndexPage'
-}
+	name: "IndexPage",
+};
 </script>
+
+<style lang="scss" scoped></style>
