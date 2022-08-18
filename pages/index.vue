@@ -13,7 +13,6 @@
 			:img1="card.img"
 			:arrow="card.arrow ? card.arrow : null"
 		)
-
 </template>
 
 <script>
@@ -60,3 +59,5 @@ export default {
 
 }
 </script>
+
+<style lang="scss" scoped></style>

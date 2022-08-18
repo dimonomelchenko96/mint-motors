@@ -1,8 +1,8 @@
-/* @font-face {
-    font-family: '<NAME>';
-    src: url('/fonts/<PATH>.woff2') format('woff2'),
-        url('/fonts/<PATH>.woff') format('woff');
-    font-weight: <normal, bold..>;
-    font-style: <normal, italic..>;
-    font-display: swap;
-} */
+@font-face {
+	font-family: "Zen Dots";
+	src: url("/fonts/Zen-Dots/zen-dots.woff2") format("woff2"),
+		url("/fonts/Zen-Dots/zen-dots.woff") format("woff");
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
