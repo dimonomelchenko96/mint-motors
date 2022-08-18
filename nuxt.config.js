@@ -1,7 +1,7 @@
 export default {
-  target: 'static',
+  target: 'server',
   head: {
-    title: 'unicorn_base',
+    title: 'Mint Motors',
     htmlAttrs: {
       lang: 'en'
     },
