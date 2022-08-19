@@ -4,14 +4,26 @@
 		CarCharacteristicsBlock(
             :data="data"
 		)
-
+	.market__car-card
+		CarCardMarket
 </template>
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
+import CarCardMarket from '../../components/CarCards/CarCardMarket';
 
 export default {
-	name: 'Market-brand',
+    name: 'Market-brand',
+
+    mounted() {
+        this.model = this.$route.params.brand;
+    },
+
+    components: {
+        CarCharacteristicsBlock,
+		CarCardMarket,
+    },
+
 	data() {
 		return {
 			model: '',
@@ -40,12 +52,6 @@ export default {
 			},
 		};
 	},
-	mounted() {
-		this.model = this.$route.params.brand;
-	},
-	components: {
-		CarCharacteristicsBlock,
-	},
 };
 </script>
 
@@ -53,6 +59,13 @@ export default {
 .market {
 	height: 100vh;
 	position: relative;
+
+    &__car-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+    }
+
 	&__car-characteristics {
 		position: absolute;
 		top: d(78);

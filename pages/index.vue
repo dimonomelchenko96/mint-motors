@@ -21,76 +21,76 @@
 import CardHome from '~/components/CardHome';
 
 export default {
-    name: 'IndexPage',
-    data() {
-        return {
-            cards: [
-                {
-                    id: 1,
+	name: 'IndexPage',
+	data() {
+		return {
+			cards: [
+				{
+					id: 1,
 					link: 'garage',
-                    name: 'Garage',
-                    numderOfCars: '04',
-                    icon: 'garage_icon',
-                    image: 'avto_big',
-                    param: {
-                        background: 'black',
+					name: 'Garage',
+					numderOfCars: '04',
+					icon: 'garage_icon',
+					image: 'avto_big',
+					param: {
+						background: 'black',
 						textColor: 'yellow',
 						imgPosition: 'center',
 						blockPosition: 'first',
-                    },
-                },
-                {
-                    id: 2,
+					},
+				},
+				{
+					id: 2,
 					link: 'market',
-                    name: 'NFT Market',
-                    icon: 'market_icon',
-                    image: 'avto_right',
+					name: 'NFT Market',
+					icon: 'market_icon',
+					image: 'avto_right',
 					param: {
-                        background: 'yellow',
+						background: 'yellow',
 						textColor: 'gray',
 						imgPosition: 'right-bottom',
 						blockPosition: 'second',
 						textTransfer: true,
-                    },
-                },
-                {
-                    id: 3,
+					},
+				},
+				{
+					id: 3,
 					link: 'finance',
-                    name: 'Finance',
-                    icon: 'finance_icon',
-                    image: 'finance',
+					name: 'Finance',
+					icon: 'finance_icon',
+					image: 'finance',
 					param: {
-                        background: 'turquoise',
+						background: 'turquoise',
 						textColor: 'black',
 						imgPosition: 'center',
 						blockPosition: 'third',
-                    },
-                },
-                {
-                    id: 4,
+					},
+				},
+				{
+					id: 4,
 					link: 'racing',
-                    name: 'Start Race',
-                    image: 'race',
-                    arrow: 'arrow_right',
+					name: 'Start Race',
+					image: 'race',
+					arrow: 'arrow_right',
 					param: {
-                        background: 'white',
+						background: 'white',
 						textColor: 'black',
 						imgPosition: 'center',
 						blockPosition: 'fourth',
-                    },
-                },
-            ],
-        };
-    },
-    components: {
-        CardHome,
-    },
+					},
+				},
+			],
+		};
+	},
+	components: {
+		CardHome,
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 .home {
-    display: flex;
+	display: flex;
 	height: 100vh;
 
 	&__container {
@@ -100,8 +100,8 @@ export default {
 		grid-template-rows: repeat(2, 1fr);
 
 		grid-template-areas:
-			"first first second third"
-			"first first second fourth";
+			'first first second third'
+			'first first second fourth';
 
 		gap: d(20);
 
