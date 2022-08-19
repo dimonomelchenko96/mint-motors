@@ -1,17 +1,21 @@
 <template lang="pug">
-.brand-card
-	.brand-card__amount
-		.brand-card__amount-inner(
-			:class="{'brand-card__amount-inner_upcoming' : start}"
-		) {{start ? start : amount.toString().length > 1 ? amount : "0" + amount}}
-	img.brand-card__img(
-		:class="[start && 'opacity']"
-		:src="require(`../assets/img/car-market/${brand}.png`)"
-		:alt='brand'
-	)
-	.brand-card__brand(
-		:class="[start && 'opacity']"
-	) {{brand}}
+nuxt-link(
+	:to="`market/${brand}`"
+	:class="{'link-disabled' : start}"
+)
+	.brand-card
+		.brand-card__amount
+			.brand-card__amount-inner(
+				:class="{'brand-card__amount-inner_upcoming' : start}"
+			) {{start ? start : amount.toString().length > 1 ? amount : "0" + amount}}
+		img.brand-card__img(
+			:class="[start && 'opacity']"
+			:src="require(`../assets/img/car-market/${brand}.png`)"
+			:alt='brand'
+		)
+		.brand-card__brand(
+			:class="[start && 'opacity']"
+		) {{brand}}
 </template>
 
 <script>
@@ -77,5 +81,8 @@ export default {
 .opacity {
     filter: grayscale(1);
     opacity: 0.3;
+}
+.link-disabled {
+    pointer-events: none;
 }
 </style>

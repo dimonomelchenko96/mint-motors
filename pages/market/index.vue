@@ -1,8 +1,8 @@
 <template lang="pug">
-.market
-	.market__container
-		h1.market__title Brands
-		.market__wrapper
+.market-brands
+	.market-brands__container
+		h1.market-brands__title Brands
+		.market-brands__wrapper
 			MarketBrandCard(
 				v-for="(item, i) in data"
 				:key='i'
@@ -10,7 +10,6 @@
 				:amount="item.amount"
 				:start="item.start"
 			)
-
 </template>
 
 <script>
@@ -66,11 +65,12 @@ export default {
     components: {
         MarketBrandCard,
     },
+    computed: {},
 };
 </script>
 
 <style lang="scss" scoped>
-.market {
+.market-brands {
     height: calc(var(--vh) * 100);
     background: #2c2b2f;
     overflow-y: hidden;
