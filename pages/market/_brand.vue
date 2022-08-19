@@ -34,6 +34,7 @@ export default {
     &__car-characteristics {
         position: absolute;
         top: d(78);
+        left: d(38);
     }
 }
 </style>
