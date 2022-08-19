@@ -38,7 +38,7 @@ nuxt-link(
 
 <script>
 export default {
-    props: [
+	props: [
 		'id',
 		'name',
 		'numderOfCars',
@@ -49,13 +49,12 @@ export default {
 		'link',
 	],
 
-    name: 'CardHome',
+	name: 'CardHome',
 
-    data() {
-        return {
-        };
-    },
-    methods: {},
+	data() {
+		return {};
+	},
+	methods: {},
 };
 </script>
 
@@ -66,37 +65,37 @@ export default {
 
 	border-radius: d(6);
 
-    &_background {
-        &-black {
-            background-color: $black;
-        }
+	&_background {
+		&-black {
+			background-color: $black;
+		}
 
-        &-yellow {
-            background-color: $yellow;
-        }
+		&-yellow {
+			background-color: $yellow;
+		}
 
-        &-turquoise {
-            background-color: $turquoise;
-        }
+		&-turquoise {
+			background-color: $turquoise;
+		}
 
-        &-white {
-            background-color: $white;
-        }
-    }
+		&-white {
+			background-color: $white;
+		}
+	}
 
-    &__icon {
-        width: d(38);
-        height: d(38);
+	&__icon {
+		width: d(38);
+		height: d(38);
 
 		padding: d(10) 0 0 d(10);
 
-        img {
-            width: 100%;
-            height: 100%;
-        }
-    }
+		img {
+			width: 100%;
+			height: 100%;
+		}
+	}
 
-    &__img {
+	&__img {
 		position: absolute;
 		top: 0;
 		height: 100%;
@@ -111,11 +110,11 @@ export default {
 
 			&-right-bottom {
 				display: flex;
-				justify-content: end;
+				justify-content: flex-end;
 				align-items: flex-end;
 			}
 		}
-    }
+	}
 
 	&__arrow {
 		width: 9;
@@ -139,41 +138,41 @@ export default {
 		justify-content: space-between;
 	}
 
-    &__info {
+	&__info {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 
 		padding: 0 d(14) d(16) d(24);
-    }
+	}
 
-    &__title {
-		font-family: "Zen Dots";
+	&__title {
+		font-family: 'Zen Dots';
 		font-size: d(19);
 		line-height: d(28);
 		font-weight: 400;
 
-        &_color {
-            &-yellow {
-                color: $yellow;
-            }
+		&_color {
+			&-yellow {
+				color: $yellow;
+			}
 
-            &-gray {
-                color: $gray;
-            }
+			&-gray {
+				color: $gray;
+			}
 
-            &-black {
-                color: $black;
-            }
-        }
+			&-black {
+				color: $black;
+			}
+		}
 
 		&_text-transfer {
 			width: d(100);
 		}
-    }
+	}
 
-    &__number {
-		font-family: "Zen Dots";
+	&__number {
+		font-family: 'Zen Dots';
 		font-size: d(14);
 		line-height: d(28);
 		font-weight: 400;
@@ -183,6 +182,6 @@ export default {
 		background-color: $yellow;
 		border-radius: d(15);
 		width: d(59);
-    }
+	}
 }
 </style>
