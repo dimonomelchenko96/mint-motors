@@ -1,7 +1,5 @@
 <template lang="pug">
-.card-home(
-	:class="changeBackground()"
-)
+.card-home
 	.card-home__icon(
 		v-if="icon"
 	)
@@ -31,55 +29,42 @@
 
 <script>
 export default {
-	props:[
-		"id",
-		"name",
-		"numderOfCars",
-		"icon",
-		"image",
-		"arrow"
-	],
+    props: ['id', 'name', 'numderOfCars', 'icon', 'image', 'arrow'],
 
     name: 'CardHome',
 
-	data() {
-		return {
-			ind: this.id,
-			background: '',
-			colorTitle: '',
-
-		};
-	},
-	methods: {
-
-	},
+    data() {
+        return {
+            ind: this.id,
+            background: '',
+            colorTitle: '',
+        };
+    },
+    methods: {},
 };
 </script>
 
 <style lang="scss" scoped>
 .card-home {
-	background-color: #4f4f4f;
-	&__icon {
-		width: 40px;
-		height: 40px;
+    background-color: #4f4f4f;
+    &__icon {
+        width: 40px;
+        height: 40px;
 
-		img {
-			width: 100%;
-			height: 100%;
-		}
-	}
+        img {
+            width: 100%;
+            height: 100%;
+        }
+    }
 
-	&__img {
+    &__img {
+    }
 
-	}
+    &__block {
+    }
 
-	&__block {
-
-	}
-
-	&__title {
-
-	}
+    &__title {
+    }
 
     &__number {
     }

@@ -16,7 +16,7 @@
 </template>
 
 <script>
-import CardHome from '../components/CardHome';
+import CardHome from '~/components/CardHome';
 
 export default {
     name: 'IndexPage',
@@ -55,7 +55,6 @@ export default {
             ],
         };
     },
-
     components: {
         CardHome,
     },
