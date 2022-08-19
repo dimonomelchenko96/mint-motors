@@ -40,60 +40,24 @@ export default {
 		"arrow"
 	],
 
-	name: 'CardHome',
+    name: 'CardHome',
 
 	data() {
 		return {
-			id: this.id,
-			background: '',
-			colorTitle: '',
 		};
 	},
-
 	methods: {
-		changeBackground() {
-			if (this.id === 1) {
-				return 'card-home_black';
-			}
 
-			if (this.id === 2) {
-				return 'card-home_yellow';
-			}
-
-			if (this.id === 3) {
-				return 'card-home_green';
-			}
-
-			if (this.id === 4) {
-				return 'card-home_white';
-			}
-		}
 	},
 };
 </script>
 
 <style lang="scss" scoped>
 .card-home {
-	&_black {
-		background-color: #151515;
-	}
-
-	&_yellow {
-		background-color: #FCED6D;
-	}
-
-	&_green {
-		border-color: #6DFCC9;
-	}
-
-	&_white {
-		background-color: #FFFFFF;
-	}
-
 	background-color: #4f4f4f;
 	&__icon {
-		width: d(28);
-		height: d(28);
+		width: 40px;
+		height: 40px;
 
 		img {
 			width: 100%;
@@ -110,19 +74,10 @@ export default {
 	}
 
 	&__title {
-		color: #000;
-
-		&_yellow {
-			color: #FCED6D;
-		}
-
-		&_gray {
-			color: #293041;
-		}
-	}
-
-	&__number {
 
 	}
+
+    &__number {
+    }
 }
 </style>

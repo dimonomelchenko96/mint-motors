@@ -19,6 +19,7 @@
 import CardHome from '../components/CardHome';
 
 export default {
+<<<<<<< HEAD
 	name: 'IndexPage',
 	data() {
 		return {
