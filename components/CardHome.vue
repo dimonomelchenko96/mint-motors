@@ -111,7 +111,7 @@ export default {
 
 			&-right-bottom {
 				display: flex;
-				justify-content: end;
+				justify-content: flex-end;
 				align-items: flex-end;
 			}
 		}

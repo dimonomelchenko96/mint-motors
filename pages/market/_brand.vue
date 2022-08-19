@@ -4,12 +4,14 @@
 		CarCharacteristicsBlock(
 			:model="model"
 		)
-
+	.market__car-card
+		CarCardMarket
 
 </template>
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
+import CarCardMarket from '../../components/CarCards/CarCardMarket';
 
 export default {
     name: 'Market-brand',
@@ -23,6 +25,7 @@ export default {
     },
     components: {
         CarCharacteristicsBlock,
+		CarCardMarket,
     },
 };
 </script>
@@ -34,6 +37,12 @@ export default {
     &__car-characteristics {
         position: absolute;
         top: d(78);
+    }
+
+    &__car-card {
+        position: absolute;
+        top: 50%;
+        left: 50%;
     }
 }
 </style>
