@@ -22,7 +22,6 @@ import CardHome from '~/components/CardHome';
 
 export default {
     name: 'IndexPage',
-
     data() {
         return {
             cards: [
