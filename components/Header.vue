@@ -5,41 +5,50 @@ header.header
 			v-if="initialStatus"
 		)
 			.navigation__link
-				nuxt-link(to="/" ).link__content
-						include ../assets/svg/layout/house.svg
-						p Home
+				nuxt-link(
+					to="/"
+					:class="{'active': $route.path === '/' }"
+				).link__content
+					include ../assets/svg/layout/house.svg
+					p Home
 			.navigation__link
-				nuxt-link(to="world" ).link__content
-						include ../assets/svg/layout/globe.svg
-						p World
+				nuxt-link(
+					to="world"
+					:class="{'active': $route.path === '/world' }"
+				).link__content
+					include ../assets/svg/layout/globe.svg
+					p World
 		.navigation(
 			v-else
 		)
 			.bread-crumbs
-				nuxt-link(to="/" v-if="homeOrWorld === 'home'")
+				nuxt-link(
+					v-for="el in firstBreadCrumbs"
+					:to="el.to"
+					v-if="homeOrWorld === el.show"
+					:key="el.to"
+				).bread-crumbs__link
 					include ../assets/svg/layout/house.svg
-					p {{homeOrWorld}}
-				nuxt-link(to="/world" v-else)
-					include ../assets/svg/layout/globe.svg
-					p {{homeOrWorld}}
+					p {{el.text}}
 			span.slash /
 			.bread-crumbs
-				nuxt-link(:to="secondParam" v-if="secondParam === 'garage'")
-					.bread-crumbs__image.bread-crumbs__image_garage
-						include ../assets/svg/layout/bread-crumbs/garage.svg
-					p Garage
-				nuxt-link(:to="secondParam" v-else-if="secondParam === 'market'")
-					.bread-crumbs__image.bread-crumbs__image_market
-						include ../assets/svg/layout/bread-crumbs/market.svg
-					p NFT Car Market
-				nuxt-link(:to="secondParam" v-else-if="secondParam === 'racing'")
-					.bread-crumbs__image.bread-crumbs__image_racing
-						include ../assets/svg/layout/bread-crumbs/racing.svg
-					p Racing
-				nuxt-link(:to="secondParam" v-else="secondParam === 'finance'")
-					.bread-crumbs__image.bread-crumbs__image_finance
-						include ../assets/svg/layout/bread-crumbs/finance.svg
-					p Finance
+				nuxt-link(
+					v-for="el in secondBreadCrumbs"
+					:to="el.to"
+					v-if="secondParam === el.show"
+					:key="el.to"
+					:class="[secondParam === el.show ? el.modifier : '']"
+				).bread-crumbs__link
+					include ../assets/svg/layout/house.svg
+					p {{el.text}}
+			template(
+				v-if="thirdParam"
+			)
+				span.slash /
+				p.track-day(
+					v-if="trackNumber"
+				) Track day &#35{{trackNumber}}
+
 	.balance
 		include ../assets/svg/layout/frame.svg
 		p {{balance}} mtr
@@ -48,111 +57,269 @@ header.header
 
 <script>
 export default {
-    name: 'Header',
-    watch: {
-        $route(current, prev) {
-            this.getRoouteParams(current.path);
-        },
-    },
-    mounted() {
-        this.getRoouteParams(this.$route.path);
-    },
-    methods: {
-        getRoouteParams(path) {
-            const arrPath = path.split('/');
+	name: 'Header',
+	watch: {
+		$route(current, prev) {
+			this.getRoouteParams(current.path);
+		},
+	},
+	mounted() {
+		this.getRoouteParams(this.$route.path);
+		console.log(this.$route);
+	},
+	methods: {
+		getRoouteParams(path) {
+			const arrPath = path.split('/');
 
-            if (arrPath.length === 2) {
-                if (arrPath[1] === '') {
-                    this.secondParam = '';
-                    this.initialStatus = true;
-                } else if (arrPath[1] == 'world') {
-                    this.secondParam = '';
-                    this.initialStatus = true;
-                } else this.initialStatus = false;
-            }
+			console.log(this.$route);
+			if (arrPath.length === 2) {
+				if (arrPath[1] === '') {
+					this.secondParam = '';
+					this.thirdParam = '';
+					this.trackNumber = '';
+					this.initialStatus = true;
+				} else if (arrPath[1] == 'world') {
+					this.secondParam = '';
+					this.thirdParam = '';
+					this.trackNumber = '';
+					this.initialStatus = true;
+				} else this.initialStatus = false;
+			} else {
+				this.initialStatus = false;
+				this.secondParam = '';
+				this.thirdParam = '';
+				this.trackNumber = '';
+			}
 
-            this.secondParam = arrPath[1];
-        },
-    },
-    data() {
-        return {
-            balance: 98989.65,
-            initialStatus: true,
-            homeOrWorld: 'home',
-            secondParam: '',
-        };
-    },
+			this.secondParam = arrPath[1];
+			this.thirdParam = arrPath[2];
+			this.trackNumber = arrPath[2];
+		},
+	},
+	data() {
+		return {
+			balance: 98989.65,
+			trackNumber: '',
+			initialStatus: true,
+			homeOrWorld: 'home',
+			secondParam: '',
+			thirdParam: '',
+			carsArray: ['Audi', 'BMW', 'Porshe', 'Lexus', 'Toyota'],
+			firstBreadCrumbs: [
+				{ to: '/', text: 'Home', show: 'home' },
+				{ to: '/world', text: 'World', show: 'world' },
+			],
+			secondBreadCrumbs: [
+				{
+					to: '/garage',
+					text: 'Garage',
+					show: 'garage',
+					modifier: 'link__image_garage',
+				},
+				{
+					to: '/market',
+					text: 'NFT Car Market',
+					show: 'market',
+					modifier: 'link__image_market',
+				},
+				{
+					to: '/finance',
+					text: 'Finance',
+					show: 'finance',
+					modifier: 'link__image_finance',
+				},
+				{
+					to: '/racing',
+					text: 'Racing',
+					show: 'racing',
+					modifier: 'link__image_racing',
+				},
+			],
+		};
+	},
 };
 </script>
 
 <style lang="scss" scoped>
-a.nuxt-link-exact-active {
-    background: rgba(0, 0, 0, 0.3);
-    border-radius: d(8);
-    svg {
-        path {
-            fill: #fff;
-        }
-    }
-    p {
-        color: #fff;
-    }
-}
 .header {
-    display: flex;
-    justify-content: space-between;
-    .navigation {
-        display: flex;
+	display: flex;
+	justify-content: space-between;
+	.navigation {
+		display: flex;
 
-        &__link {
-            margin-right: d(16);
-            .link__content {
-                width: d(98);
-                height: d(42);
-                display: flex;
-                justify-content: center;
-                align-items: center;
+		&__link {
+			margin-right: d(16);
+			.link__content {
+				width: d(98);
+				height: d(42);
+				display: flex;
+				justify-content: center;
+				align-items: center;
 
-                svg {
-                    width: d(14);
-                    height: d(14);
-                    margin-right: d(9);
-                    path {
-                        fill: rgba(255, 255, 255, 0.3);
-                    }
-                }
+				svg {
+					width: d(14);
+					height: d(14);
+					margin-right: d(9);
+					path {
+						fill: rgba(255, 255, 255, 0.3);
+					}
+				}
 
-                p {
-                    font-family: 'Zen Dots';
-                    font-style: normal;
-                    font-weight: 400;
-                    font-size: d(14);
-                    color: rgba(255, 255, 255, 0.3);
-                }
+				p {
+					font-family: 'Zen Dots';
+					font-style: normal;
+					font-weight: 400;
+					font-size: d(14);
+					color: rgba(255, 255, 255, 0.3);
+				}
 
-                &:hover {
-                }
-            }
-        }
-    }
+				&.active {
+					background: rgba(0, 0, 0, 0.3);
+					border-radius: d(8);
 
-    .balance {
-        display: flex;
-        align-items: center;
+					svg {
+						path {
+							fill: #fff;
+						}
+					}
 
-        svg {
-            width: d(28);
-            height: d(28);
-            margin-right: d(8);
-        }
+					p {
+						color: #fff;
+					}
+				}
+			}
+		}
 
-        p {
-            font-family: 'Zen Dots';
-            font-style: normal;
-            font-weight: 400;
-            font-size: d(12);
-            color: #fff;
-        }
-    }
+		.slash {
+			color: rgba(255, 255, 255, 0.3);
+			margin-right: d(16);
+			line-height: 42px;
+		}
+		.bread-crumbs {
+			margin-right: d(16);
+
+			&__link {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+
+				svg {
+					width: d(14);
+					height: d(14);
+					margin-right: d(9);
+					path {
+						fill: #fff;
+					}
+				}
+
+				p {
+					font-family: 'Zen Dots';
+					font-style: normal;
+					font-weight: 400;
+					font-size: d(14);
+					line-height: d(42);
+					color: #ffffff;
+				}
+
+				.link__image {
+					display: flex;
+					justify-content: center;
+					align-items: center;
+					width: d(28);
+					height: d(28);
+					border-radius: 50%;
+					margin-right: d(16);
+
+					svg {
+						margin-right: 0;
+						path {
+							fill: #000;
+						}
+					}
+
+					&_garage {
+						background: #e05d54;
+						svg {
+							width: d(13);
+							height: d(13);
+						}
+					}
+					&_market {
+						background: #fced6d;
+						svg {
+							width: d(11);
+							height: d(11);
+						}
+					}
+					&_racing {
+						background: #fff;
+						svg {
+							width: d(14);
+							height: d(14);
+						}
+					}
+					&_finance {
+						background: #6dfcc8;
+						svg {
+							width: d(14);
+							height: d(11);
+						}
+					}
+				}
+			}
+		}
+	}
+
+	.balance {
+		display: flex;
+		align-items: center;
+
+		svg {
+			width: d(28);
+			height: d(28);
+			margin-right: d(8);
+		}
+
+		p {
+			font-family: 'Zen Dots';
+			font-style: normal;
+			font-weight: 400;
+			font-size: d(12);
+			color: #fff;
+		}
+	}
+
+	.track-day {
+		font-family: 'Zen Dots';
+		font-style: normal;
+		font-weight: 400;
+		font-size: d(14);
+		line-height: d(42);
+		color: #ffffff;
+	}
 }
 </style>
+
+<!-- nuxt-link(to="/" v-if="homeOrWorld === 'home'").bread-crumbs__link
+					include ../assets/svg/layout/house.svg
+					p Home
+				nuxt-link(to="/world" v-else).bread-crumbs__link
+					include ../assets/svg/layout/globe.svg
+					p World  -->
+
+<!-- nuxt-link(to="/garage" v-if="secondParam === 'garage'").bread-crumbs__link
+					.link__image.link__image_garage
+						include ../assets/svg/layout/bread-crumbs/garage.svg
+					p Garage
+				nuxt-link(to="/market" v-else-if="secondParam === 'market'").bread-crumbs__link
+					.link__image.link__image_market
+						include ../assets/svg/layout/bread-crumbs/market.svg
+					p NFT Car Market
+				nuxt-link(to="/racing" v-else-if="secondParam === 'racing'").bread-crumbs__link
+					.link__image.link__image_racing
+						include ../assets/svg/layout/bread-crumbs/racing.svg
+					p Racing
+				nuxt-link(to="/finance" v-else="secondParam === 'finance'").bread-crumbs__link
+					.link__image.link__image_finance
+						include ../assets/svg/layout/bread-crumbs/finance.svg
+					p Finance -->
