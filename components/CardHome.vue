@@ -1,7 +1,5 @@
 <template lang="pug">
-.card-home(
-	:class="changeBackground()"
-)
+.card-home
 	.card-home__icon(
 		v-if="icon"
 	)

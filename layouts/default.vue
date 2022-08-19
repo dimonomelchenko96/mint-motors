@@ -1,19 +1,25 @@
 <template lang="pug">
 .layout
-	.content
-		Header.content__header
-		Footer.content__footer
-		Nuxt
+    Device
+        template(#mob)
+            .mob
+        template(#desc)
+            .content
+                Header.content__header
+                Footer.content__footer
+                Nuxt
 </template>
 
 <script>
 import Header from '~/components/Header';
 import Footer from '~/components/Footer';
+import Device from '~/components/helpers/Device'
 
 export default {
     components: {
         Header,
         Footer,
+        Device
     },
 };
 </script>

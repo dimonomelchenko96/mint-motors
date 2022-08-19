@@ -30,6 +30,7 @@ export default {
     plugins: [
         { src: '~/plugins/$api' },
         { src: '~/plugins/height.js', mode: 'client' },
+        { src: '~/plugins/isDesctop', mode: 'client' },
     ],
     components: false,
     buildModules: [
