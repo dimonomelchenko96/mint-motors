@@ -36,10 +36,11 @@ export default {
     position: relative;
     width: 100vw;
     height: 100vh;
-    padding: d(10) d(38) d(50);
+
     &__header {
         position: absolute;
         top: d(10);
+        left: d(38);
         width: calc(100% - d(76));
     }
 }
