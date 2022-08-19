@@ -37,9 +37,12 @@ header.header
 					:to="el.to"
 					v-if="secondParam === el.show"
 					:key="el.to"
-					:class="[secondParam === el.show ? el.modifier : '']"
 				).bread-crumbs__link
-					include ../assets/svg/layout/house.svg
+					template
+						.link__image(
+							v-html="require(`~/assets/svg/layout/bread-crumbs/${el.show}.svg?raw`)"
+							:class="[secondParam === el.show ? el.modifier : '']"
+						)
 					p {{el.text}}
 			template(
 				v-if="thirdParam"
@@ -254,8 +257,8 @@ export default {
 					&_racing {
 						background: #fff;
 						svg {
-							width: d(14);
-							height: d(14);
+							width: d(11);
+							height: d(11);
 						}
 					}
 					&_finance {
@@ -300,26 +303,4 @@ export default {
 }
 </style>
 
-<!-- nuxt-link(to="/" v-if="homeOrWorld === 'home'").bread-crumbs__link
-					include ../assets/svg/layout/house.svg
-					p Home
-				nuxt-link(to="/world" v-else).bread-crumbs__link
-					include ../assets/svg/layout/globe.svg
-					p World  -->
-
-<!-- nuxt-link(to="/garage" v-if="secondParam === 'garage'").bread-crumbs__link
-					.link__image.link__image_garage
-						include ../assets/svg/layout/bread-crumbs/garage.svg
-					p Garage
-				nuxt-link(to="/market" v-else-if="secondParam === 'market'").bread-crumbs__link
-					.link__image.link__image_market
-						include ../assets/svg/layout/bread-crumbs/market.svg
-					p NFT Car Market
-				nuxt-link(to="/racing" v-else-if="secondParam === 'racing'").bread-crumbs__link
-					.link__image.link__image_racing
-						include ../assets/svg/layout/bread-crumbs/racing.svg
-					p Racing
-				nuxt-link(to="/finance" v-else="secondParam === 'finance'").bread-crumbs__link
-					.link__image.link__image_finance
-						include ../assets/svg/layout/bread-crumbs/finance.svg
-					p Finance -->
+<
