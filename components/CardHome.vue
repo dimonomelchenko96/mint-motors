@@ -44,6 +44,10 @@ export default {
 
 	data() {
 		return {
+			ind: this.id,
+			background: '',
+			colorTitle: '',
+
 		};
 	},
 	methods: {
