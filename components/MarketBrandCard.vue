@@ -1,8 +1,8 @@
 <template lang="pug">
 .brand-card
 	.brand-card__amount
-		div(
-			:class="[start && 'active']"
+		.brand-card__amount-inner(
+			:class="{'brand-card__amount-inner_upcoming' : start}"
 		) {{start ? start : amount.toString().length > 1 ? amount : "0" + amount}}
 	img.brand-card__img(
 		:class="[start && 'opacity']"
@@ -37,7 +37,7 @@ export default {
 	&__amount {
 		display: flex;
 		justify-content: flex-end;
-		div {
+		&-inner {
 			padding: 0 d(16);
 			width: auto;
 			font-family: "Zen Dots";
@@ -50,7 +50,7 @@ export default {
 			color: #ffffff;
 			background: #000000;
 			border-radius: d(15);
-			&.active {
+			&_upcoming {
 				width: 100%;
 				background: #e05d54;
 				text-overflow: ellipsis;
