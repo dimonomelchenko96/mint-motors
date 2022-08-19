@@ -1,13 +1,14 @@
 <template lang="pug">
 .layout
-    Device
-        template(#mob)
-            .mob
-        template(#desc)
-            .content
-                Header.content__header
-                Footer.content__footer
-                Nuxt
+
+    .content
+        Device
+            template(#mob)
+                .mob
+            template(#desc)
+                    Header.content__header
+                    Footer.content__footer
+                    Nuxt
 </template>
 
 <script>
