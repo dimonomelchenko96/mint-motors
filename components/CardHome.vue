@@ -1,17 +1,18 @@
 <template lang="pug">
-.card-home
+.card-home(
+	:class="changeBackground()"
+)
 	.card-home__icon(
 		v-if="icon"
 	)
 		img(
 			:src="require(`../assets/svg/home/${icon}.svg`)"
 		)
-		span {{ img1 }}
 
-	//- .card-home__img
-	//- 	img(
-	//- 		:src="'../../assets/svg/garage_icon.svg'"
-	//- 	)
+	.card-home__img
+		img(
+			:src="require(`../assets/img/home/${image}.png`)"
+		)
 
 	.card-home__block
 		h2.card-home__title {{ name }}
@@ -20,10 +21,12 @@
 			v-if="numderOfCars !== null"
 		) {{ numderOfCars }}
 
-		//- .card-home__icon(
-		//- 	v-if="arrow"
-		//- )
-			//- include ../../assets/svg/garage_icon.svg
+		.card-home__icon(
+			v-if="arrow"
+		)
+			img(
+				:src="require(`../assets/svg/home/${arrow}.svg`)"
+			)
 </template>
 
 <script>
@@ -33,7 +36,7 @@ export default {
 		"name",
 		"numderOfCars",
 		"icon",
-		"img1",
+		"image",
 		"arrow"
 	],
 
@@ -41,20 +44,56 @@ export default {
 
 	data() {
 		return {
+			id: this.id,
+			background: '',
+			colorTitle: '',
 		};
 	},
-	methods: {
 
+	methods: {
+		changeBackground() {
+			if (this.id === 1) {
+				return 'card-home_black';
+			}
+
+			if (this.id === 2) {
+				return 'card-home_yellow';
+			}
+
+			if (this.id === 3) {
+				return 'card-home_green';
+			}
+
+			if (this.id === 4) {
+				return 'card-home_white';
+			}
+		}
 	},
 };
 </script>
 
 <style lang="scss" scoped>
 .card-home {
+	&_black {
+		background-color: #151515;
+	}
+
+	&_yellow {
+		background-color: #FCED6D;
+	}
+
+	&_green {
+		border-color: #6DFCC9;
+	}
+
+	&_white {
+		background-color: #FFFFFF;
+	}
+
 	background-color: #4f4f4f;
 	&__icon {
-		width: 40px;
-		height: 40px;
+		width: d(28);
+		height: d(28);
 
 		img {
 			width: 100%;
@@ -71,7 +110,15 @@ export default {
 	}
 
 	&__title {
+		color: #000;
 
+		&_yellow {
+			color: #FCED6D;
+		}
+
+		&_gray {
+			color: #293041;
+		}
 	}
 
 	&__number {

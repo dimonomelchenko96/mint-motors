@@ -10,7 +10,7 @@
 			:name="card.name"
 			:numderOfCars="card.numderOfCars ? card.numderOfCars : null"
 			:icon="card.icon ? card.icon : null"
-			:img1="card.img"
+			:image="card.image"
 			:arrow="card.arrow ? card.arrow : null"
 		)
 </template>
@@ -28,26 +28,26 @@ export default {
 					name: 'Garage',
 					numderOfCars: '04',
 					icon: 'garage_icon',
-					img: 'avto_big.png'
+					image: 'avto_big'
 
 				},
 				{
 					id: 2,
 					name: 'NFT Market',
 					icon: 'market_icon',
-					img: 'avto_right.png'
+					image: 'avto_right'
 				},
 				{
 					id: 3,
 					name: 'Finance',
 					icon: 'finance_icon',
-					img: 'finance.png'
+					image: 'finance'
 				},
 				{
 					id: 4,
 					name: 'Start Race',
-					img: 'avto_big.png',
-					arrow: 'arrow_right.svg'
+					image: 'race',
+					arrow: 'arrow_right'
 				},
 			]
 		}
@@ -60,4 +60,18 @@ export default {
 }
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+// .div {
+// 	display: flex;
+// 	height: 100vh;
+// 	jc
+// }
+.home {
+	display: flex;
+	margin: 0 auto;
+	position: absolute;
+	top: 50%;
+	transform: translateY(-50%);
+	height: d(616);
+}
+</style>
