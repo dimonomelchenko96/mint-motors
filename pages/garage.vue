@@ -1,16 +1,16 @@
 <template lang="pug">
-.racing
-	p Racing
+.garage
+	p Garage
 </template>
 
 <script>
 export default {
-    name: 'Racing',
+    name: 'Garage',
 };
 </script>
 
 <style lang="scss" scoped>
-.racing {
+.garage {
     p {
         text-align: center;
         padding: 200px;

@@ -1,14 +1,45 @@
 <template lang="pug">
 header.header
-	nav.navigation
-		.navigation__link
-			nuxt-link(to="/").link__content
+	nav
+		.navigation(
+			v-if="initialStatus"
+		)
+			.navigation__link
+				nuxt-link(to="/" ).link__content
+						include ../assets/svg/layout/house.svg
+						p Home
+			.navigation__link
+				nuxt-link(to="world" ).link__content
+						include ../assets/svg/layout/globe.svg
+						p World
+		.navigation(
+			v-else
+		)
+			.bread-crumbs
+				nuxt-link(to="/" v-if="homeOrWorld === 'home'")
 					include ../assets/svg/layout/house.svg
-					p Home
-		.navigation__link
-			nuxt-link(to="world").link__content
+					p {{homeOrWorld}}
+				nuxt-link(to="/world" v-else)
 					include ../assets/svg/layout/globe.svg
-					p World
+					p {{homeOrWorld}}
+			span.slash /
+			.bread-crumbs
+				nuxt-link(:to="secondParam" v-if="secondParam === 'garage'")
+					.bread-crumbs__image.bread-crumbs__image_garage
+						include ../assets/svg/layout/bread-crumbs/garage.svg
+					p Garage
+				nuxt-link(:to="secondParam" v-else-if="secondParam === 'market'")
+					.bread-crumbs__image.bread-crumbs__image_market
+						include ../assets/svg/layout/bread-crumbs/market.svg
+					p NFT Car Market
+				nuxt-link(:to="secondParam" v-else-if="secondParam === 'racing'")
+					.bread-crumbs__image.bread-crumbs__image_racing
+						include ../assets/svg/layout/bread-crumbs/racing.svg
+					p Racing
+				nuxt-link(:to="secondParam" v-else="secondParam === 'finance'")
+					.bread-crumbs__image.bread-crumbs__image_finance
+						include ../assets/svg/layout/bread-crumbs/finance.svg
+					p Finance
 	.balance
 		include ../assets/svg/layout/frame.svg
 		p {{balance}} mtr
@@ -18,9 +49,37 @@ header.header
 <script>
 export default {
     name: 'Header',
+    watch: {
+        $route(current, prev) {
+            this.getRoouteParams(current.path);
+        },
+    },
+    mounted() {
+        this.getRoouteParams(this.$route.path);
+    },
+    methods: {
+        getRoouteParams(path) {
+            const arrPath = path.split('/');
+
+            if (arrPath.length === 2) {
+                if (arrPath[1] === '') {
+                    this.secondParam = '';
+                    this.initialStatus = true;
+                } else if (arrPath[1] == 'world') {
+                    this.secondParam = '';
+                    this.initialStatus = true;
+                } else this.initialStatus = false;
+            }
+
+            this.secondParam = arrPath[1];
+        },
+    },
     data() {
         return {
             balance: 98989.65,
+            initialStatus: true,
+            homeOrWorld: 'home',
+            secondParam: '',
         };
     },
 };
