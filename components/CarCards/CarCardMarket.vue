@@ -16,9 +16,9 @@ export default {
 				icon: 'buy',
 				text: '20 000 MTR'
 			},
-			button: {
-				buttonText: 'Buy NFT'
-			}
+			// button: {
+			// 	buttonText: 'Buy NFT'
+			// }
         }
     },
     methods: {

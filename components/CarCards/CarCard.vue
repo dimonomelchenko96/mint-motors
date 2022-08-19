@@ -16,26 +16,33 @@
 		img(
 			:src="require('../../assets/img/car-card/car_card.png')"
 		)
-	button.car-card__button.button
-		.button__icon(
-			v-if="buttonIcon"
-		)
-		.button__text {{ button.buttonText }}
+	MainButton(
+		:buttonText="button.buttonText"
+		:theme="button.buttonTheme"
+	)
+
 </template>
 
 <script>
+import MainButton from '~/components/button/MainButton';
+
 export default {
-	props: ["header", "button"],
+	props: ["header"],
 
 	data() {
 		return {
 			button: {
 				buttonText: 'Buy NFT',
-				buttonPage: 'market',
+				buttonTheme: 'blue',
 			}
 		};
 	},
+
 	methods: {},
+
+	components: {
+		MainButton,
+	}
 };
 </script>
 
@@ -62,6 +69,13 @@ export default {
 			height: 100%;
 			width: 100%;
 		}
+
+		::v-deep {
+			svg {
+				height: 100%;
+				width: 100%;
+			}
+		}
 	}
 
 	&__text {
@@ -74,6 +88,8 @@ export default {
 	}
 
 	&__img {
+		margin-bottom: d(10);
+
 		img {
 			width: 100%;
 			height: 100%;
