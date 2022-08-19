@@ -7,7 +7,6 @@
         )
             template
                 div.button__icon-inner(
-                    style="display:flex"
                     v-html="require(`../../assets/svg/button/${buttonIcon}.svg?raw`)"
                 )
         .button__text {{ buttonText }}

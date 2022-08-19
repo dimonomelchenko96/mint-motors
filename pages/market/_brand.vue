@@ -19,7 +19,7 @@ export default {
 				startProd: 1973,
 				endProd: 2002,
 				brand: 'BMW',
-				state: 'crashed',
+				state: 'new',
 				params: [
 					{
 						characteristic: 'Power',

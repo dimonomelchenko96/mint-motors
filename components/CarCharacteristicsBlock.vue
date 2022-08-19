@@ -20,7 +20,7 @@
 				) {{item.percent}} 
 	MainButton(
 		buttonText="Start Race"
-		buttonIcon="arrow"
+		buttonIcon="finish"
 		theme='blue'
 	)
 
