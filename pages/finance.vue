@@ -1,5 +1,6 @@
 <template lang="pug">
-div Finance
+.finance
+	p Finance
 </template>
 
 <script>
@@ -8,4 +9,13 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.finance {
+    p {
+        text-align: center;
+        padding: 200px;
+        font-size: 70px;
+        color: #fff;
+    }
+}
+</style>
