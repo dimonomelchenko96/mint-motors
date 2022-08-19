@@ -44,7 +44,7 @@ export default {
 
 	data() {
 		return {
-			id: this.id,
+			ind: this.id,
 			background: '',
 			colorTitle: '',
 		};

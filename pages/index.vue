@@ -20,6 +20,7 @@ import CardHome from '../components/CardHome';
 
 export default {
 	name: 'IndexPage',
+
 	data() {
 		return {
 			cards: [
@@ -28,8 +29,11 @@ export default {
 					name: 'Garage',
 					numderOfCars: '04',
 					icon: 'garage_icon',
-					image: 'avto_big'
-
+					image: 'avto_big',
+					param: {
+						bacckground: 'black',
+						textColor: 
+					},
 				},
 				{
 					id: 2,
