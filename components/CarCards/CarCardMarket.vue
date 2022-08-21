@@ -10,29 +10,24 @@
 import CarCard from './CarCard';
 
 export default {
-    data() {
-        return {
+	data() {
+		return {
 			header: {
 				icon: 'buy',
-				text: '20 000 MTR'
+				text: '20 000 MTR',
 			},
-			// button: {
-			// 	buttonText: 'Buy NFT'
-			// }
-        }
-    },
-    methods: {
+		};
+	},
+	methods: {},
 
-    },
-
-		components: {
-			CarCard
-		}
-}
+	components: {
+		CarCard,
+	},
+};
 </script>
 
 <style lang="scss" scoped>
 .car-card-market {
-    display: flex;
+	display: flex;
 }
 </style>

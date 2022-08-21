@@ -10,7 +10,7 @@
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import CarCardMarket from '../../components/CarCards/CarCardMarket';
+import CarCardMarket from '../../components/carCards/CarCardMarket';
 
 export default {
     name: 'Market-brand',
