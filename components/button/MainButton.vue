@@ -1,16 +1,12 @@
 <template lang="pug">
-    button.button(
-        :class="`button_${theme}`"
-    )
-        .button__icon(
-            v-if="buttonIcon" 
-        )
-            template
-                div.button__icon-inner(
-                    style="display:flex"
-                    v-html="require(`../../assets/svg/button/${buttonIcon}.svg?raw`)"
-                )
-        .button__text {{ buttonText }}
+button.button(
+	:class="`button_${theme}`"
+)
+	.button__icon(
+		v-if="buttonIcon"
+		v-html="require(`~/assets/svg/button/${buttonIcon}.svg?raw`)"
+	)
+	.button__text {{ buttonText }}
 </template>
 
 <script>
@@ -48,12 +44,11 @@ export default {
 	}
 	&__icon {
 		margin-right: d(10);
-		&-inner {
-			width: d(16);
-			height: d(16);
-			svg {
-				width: 100%;
-			}
+		width: d(16);
+		height: d(16);
+
+		::v-deep svg {
+			width: 100%;
 		}
 	}
 }

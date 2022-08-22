@@ -1,21 +1,21 @@
 <template lang="pug">
-.characteristics-card
-	.characteristics-card__top
-		img.characteristics-card__img(src='../assets/img/car-market/Bmw.png')
-		.characteristics-card__top-right
-			.characteristics-card__start-production {{data.startProd}}
-			h3.characteristics-card__brand {{data.brand}}
-			.characteristics-card__end-production {{data.endProd}}
-	.characteristics-card__characteristics
-		.characteristics-card__item(
+.characteristics
+	.characteristics__top
+		img.characteristics__img(src='../assets/img/car-market/Bmw.png')
+		.characteristics__top-right
+			.characteristics__start-production {{data.startProd}}
+			h3.characteristics__brand {{data.brand}}
+			.characteristics__end-production {{data.endProd}}
+	.characteristics__characteristics
+		.characteristics__item(
 			v-for="(item, i) in data.params"
 		)
-			.characteristics-card__parameter {{item.characteristic}}
-			.characteristics-card__value-block 
-				.characteristics-card__value(
-					:class="`characteristics-card__value_${data.state}`"
+			.characteristics__parameter {{item.characteristic}}
+			.characteristics__value-block 
+				.characteristics__value(
+					:class="`characteristics__value_${data.state}`"
 				) {{item.value}}
-				.characteristics-card__persent(
+				.characteristics__persent(
 					v-if="data.state === 'crashed'"
 				) {{item.percent}} 
 	MainButton(
@@ -38,7 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.characteristics-card {
+.characteristics {
 	&__top {
 		display: flex;
 	}

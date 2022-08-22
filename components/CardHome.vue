@@ -1,39 +1,35 @@
 <template lang="pug">
-nuxt-link(
+nuxt-link.card-home(
 	:to="'/' + link"
+	:class="'card-home_background-' + param.background"
 )
-	.card-home(
-		:class="'card-home_background-' + param.background"
-	)
-		.card-home__block
-			div
-				.card-home__icon(
-					v-if="icon"
-				)
-					img(
-						:src="require(`../assets/svg/home/${icon}.svg`)"
-					)
-			.card-home__info
-				h2.card-home__title(
-					:class="['card-home__title_color-' + param.textColor, param.textTransfer && 'card-home__title_text-transfer']"
-				) {{ name }}
+	.card-home__block
+		.card-home__icon
+			img(
+				v-if="icon"
+				:src="require(`~/assets/svg/home/${icon}.svg`)"
+			)
+		.card-home__info
+			h2.card-home__title(
+				:class="['card-home__title_color-' + param.textColor, param.textTransfer && 'card-home__title_text-transfer']"
+			) {{ name }}
 
-				.card-home__number(
-					v-if="numderOfCars"
-				) {{ numderOfCars }}
+			.card-home__number(
+				v-if="numderOfCars"
+			) {{ numderOfCars }}
 
-				.card-home__arrow(
-					v-if="arrow"
-				)
-					img(
-						:src="require(`../assets/svg/home/${arrow}.svg`)"
-					)
-		.card-home__img(
-			:class="'card-home__img_position-' + param.imgPosition"
-		)
+			.card-home__arrow(
+				v-if="arrow"
+			)
 				img(
-					:src="require(`../assets/img/home/${image}.png`)"
+					:src="require(`../assets/svg/home/${arrow}.svg`)"
 				)
+	.card-home__img(
+		:class="'card-home__img_position-' + param.imgPosition"
+	)
+			img(
+				:src="require(`../assets/img/home/${image}.png`)"
+			)
 </template>
 
 <script>
