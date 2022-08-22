@@ -1,5 +1,5 @@
 <template lang="pug">
-h3.track-title {{titleWiev}}
+h3.track-title {{titleView}}
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
 
 	data() {
 		return {
-			titleWiev: '',
+			titleView: '',
 		};
 	},
 
@@ -23,7 +23,7 @@ export default {
 	},
 
 	mounted() {
-		this.titleWiev = this.firstLaterToUpperCase(this.title);
+		this.titleView = this.firstLaterToUpperCase(this.title);
 	},
 };
 </script>

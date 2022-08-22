@@ -53,23 +53,14 @@ export default {
 			const arrPath = path.split('/');
 
 			if (arrPath.length === 2) {
-				if (arrPath[1] === '') {
-					this.secondParam = '';
-					this.thirdParam = '';
-					this.trackNumber = '';
-					this.initialStatus = true;
-				} else if (arrPath[1] == 'world') {
-					this.secondParam = '';
-					this.thirdParam = '';
-					this.trackNumber = '';
-					this.initialStatus = true;
-				} else this.initialStatus = false;
-			} else {
-				this.initialStatus = false;
-				this.secondParam = '';
-				this.thirdParam = '';
-				this.trackNumber = '';
+				if (arrPath[1] === '') this.initialStatus = true;
+				else if (arrPath[1] == 'world') this.initialStatus = true;
+				else this.initialStatus = false;
 			}
+
+			this.secondParam = '';
+			this.thirdParam = '';
+			this.trackNumber = '';
 
 			this.secondParam = arrPath[1];
 			this.thirdParam = arrPath[2];

@@ -48,6 +48,7 @@ export default {
 <style lang="scss" scoped>
 .bread-crumbs {
 	display: flex;
+	align-items: center;
 
 	&__slash {
 		color: rgba(255, 255, 255, 0.3);

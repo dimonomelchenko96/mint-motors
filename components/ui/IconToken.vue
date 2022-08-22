@@ -18,8 +18,8 @@ export default {
 	align-items: center;
 
 	svg {
-		width: d(18);
-		height: d(9);
+		width: 64%;
+		height: 32%;
 	}
 }
 </style>
