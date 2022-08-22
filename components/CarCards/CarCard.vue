@@ -4,11 +4,9 @@
 		.car-card__header(
 			v-if="header"
 		)
-			.car-card__icon
-				template
-					div(
-						v-html="require(`../../assets/svg/car-card/${header.icon}.svg?raw`)"
-					)
+			.car-card__icon(
+				v-html="require(`../../assets/svg/car-card/${header.icon}.svg?raw`)"
+			)
 
 			.car-card__text {{ header.text }}
 
@@ -64,11 +62,6 @@ export default {
 	&__icon {
 		width: d(18);
 		height: d(18);
-
-		div {
-			height: 100%;
-			width: 100%;
-		}
 
 		::v-deep {
 			svg {

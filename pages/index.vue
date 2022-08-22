@@ -5,7 +5,6 @@
 			v-for="card in cards"
 			:key="card.id"
 			:class="'home__link_position-' + card.param.blockPosition"
-			
 			:name="card.name"
 			:numderOfCars="card.numderOfCars"
 			:icon="card.icon"
