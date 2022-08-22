@@ -1,6 +1,6 @@
 <template lang="pug">
 .card-finance
-	.card-finance__header.header-block
+	.header-block.card-finance__header
 		.header-block__title(
 			v-if="name === 'Balance'"
 		)
@@ -19,7 +19,7 @@
 					include ../../assets/svg/finance/busd_icon.svg
 				.header-block__icon.header-block__icon_pool
 					include ../../assets/svg/finance/mtr-logo.svg
-			.header-block__name.header-block__name_pool {{ name }}
+			.header-block__name {{ name }}
 
 		.header-block__amount(
 			v-if="name === 'Balance'"
@@ -27,7 +27,7 @@
 			.header-block__name.header-block__name_pink $
 			.header-block__name {{ sum }}
 			
-		.header-block__amount(
+		.header-block__amount.header-block__amount_pool(
 			v-if="name === 'Staking Pool'"
 		)
 			.header-block__name.header-block__name_pool Apr
@@ -37,7 +37,9 @@
 		:class="'card-finance__main_' + main.background"
 	)
 		.main-block__title
-			.main-block__icon 
+			.main-block__icon(
+				:class="'main-block__icon_' + main.icon"
+			)
 				include ../../assets/svg/finance/mtr-logo.svg
 			.main-block__name {{ main.name}}
 		.main-block__sum {{ main.amount }}
@@ -89,6 +91,10 @@ export default {
 
 		&_black {
 			background-color: #19191F;
+		}
+
+		&_pink {
+			background-color: $pink;
 		}
 	}
 
@@ -168,15 +174,26 @@ export default {
 		}
 
 		&_pool {
-			line-height: d(12);
+			opacity: 1;
+			text-transform: uppercase;
+			line-height: d(20);
+		}
+
+		&_turquoise {
+			font-size: d(24);
+			line-height: d(24);
+			color: $turquoise;
+			opacity: 1;
 		}
 	}
 
 	&__amount {
 		display: flex;
+
+		&_pool {
+			flex-direction: column;
+		}
 	}
-
-
 }
 
 .main-block {
@@ -202,6 +219,19 @@ export default {
 				width: d(11);
 			}
 		}
+
+		&_black {
+			background-color: #1D232A;
+
+			::v-deep {
+				svg {
+					path {
+						fill: $pink;
+					}
+					
+				}
+			}
+		}
 	}
 
 	&__name {
@@ -218,7 +248,7 @@ export default {
 		font-weight: 400;
 		font-size: d(35);
 		line-height: d(42);
-
+		text-align: center;
 		color: $white;
 
 		margin-bottom: d(8);

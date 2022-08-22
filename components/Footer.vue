@@ -1,9 +1,9 @@
 <template lang="pug">
-div
-	.logo
+footer.footer
+	.logo.footer__logo
 		include ../assets/svg/layout/logo.svg
-	.token
-		p {{token}} mtr
+	.token.footer__token
+		p {{token}}
 		img(
 			src="../assets/img/layout/tokenImage.png"
 			alt="token"
@@ -22,17 +22,25 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+.footer {
+    &__logo {
+        position: absolute;
+        bottom: d(50);
+        left: d(38);
+    }
+
+    &__token {
+        position: absolute;
+        bottom: d(50);
+        right: d(38);
+    }
+}
+
 .logo {
     width: d(96);
     height: d(32);
-    position: absolute;
-    bottom: d(50);
-    left: d(38);
 }
 .token {
-    position: absolute;
-    bottom: d(50);
-    right: d(38);
     display: flex;
     align-items: center;
 

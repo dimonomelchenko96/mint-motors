@@ -26,7 +26,11 @@ export default {
             // },
         ],
     },
-    css: ['~/assets/css/fonts.css', '~/assets/css/global.scss'],
+    css: [
+        '~/assets/css/fonts.css',
+        '~/assets/css/global.scss',
+        'vue-slick-carousel/dist/vue-slick-carousel.css'
+    ],
     plugins: [
         { src: '~/plugins/$api' },
         { src: '~/plugins/height.js', mode: 'client' },
