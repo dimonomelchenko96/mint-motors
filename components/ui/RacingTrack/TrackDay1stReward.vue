@@ -22,6 +22,7 @@ export default {
 .track-1st-reward {
 	display: flex;
 	justify-content: space-between;
+	justify-content: space-between;
 	align-items: center;
 	padding: d(8) d(16);
 
