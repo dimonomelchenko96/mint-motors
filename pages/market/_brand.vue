@@ -1,11 +1,14 @@
 <template lang="pug">
 .market
+	img.market__img(
+		src="~/assets/img/car-market/car.png"
+	)
 	.market__car-characteristics
 		CarCharacteristicsBlock(
             :data="data"
 		)
-	.market__car-card
-		CarCardMarket
+	//- .market__car-card
+	//- 	CarCardMarket
 </template>
 
 <script>
@@ -31,7 +34,7 @@ export default {
 				startProd: 1973,
 				endProd: 2002,
 				brand: 'BMW',
-				state: 'crashed',
+				state: 'new',
 				params: [
 					{
 						characteristic: 'Power',
@@ -70,6 +73,11 @@ export default {
 		position: absolute;
 		top: d(78);
 		left: d(38);
+	}
+
+	&__img {
+		max-width: d(1440);
+		width: 100%;
 	}
 }
 </style>
