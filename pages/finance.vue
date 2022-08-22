@@ -1,18 +1,20 @@
 <template lang="pug">
 .finance
-	//- p Finance
 	CardBalance
+	CardPool
 </template>
 
 <script>
 import CardBalance from '~/components/finance/CardBalance';
+import CardPool from '~/components/finance/CardPool';
 
 export default {
-    name: 'Finance',
+	name: 'Finance',
 
-    components: {
-        CardBalance
-    }
+	components: {
+		CardBalance,
+		CardPool,
+	},
 };
 </script>
 
@@ -22,11 +24,11 @@ export default {
 	display: flex;
 	justify-content: center;
 	align-items: center;
-    // p {
-    //     text-align: center;
-    //     padding: 200px;
-    //     font-size: 70px;
-    //     color: #fff;
-    // }
+	// p {
+	//     text-align: center;
+	//     padding: 200px;
+	//     font-size: 70px;
+	//     color: #fff;
+	// }
 }
 </style>

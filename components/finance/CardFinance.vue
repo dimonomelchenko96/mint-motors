@@ -17,15 +17,21 @@
 			.header-block__icons
 				.header-block__icon
 					include ../../assets/svg/finance/busd_icon.svg
-				.header-block__icon
-					include ../../assets/svg/car-card/buy.svg
-			.header-block__name {{ name }}
+				.header-block__icon.header-block__icon_pool
+					include ../../assets/svg/finance/mtr-logo.svg
+			.header-block__name.header-block__name_pool {{ name }}
 
 		.header-block__amount(
 			v-if="name === 'Balance'"
 		)
 			.header-block__name.header-block__name_pink $
 			.header-block__name {{ sum }}
+			
+		.header-block__amount(
+			v-if="name === 'Staking Pool'"
+		)
+			.header-block__name.header-block__name_pool Apr
+			.header-block__name.header-block__name_turquoise {{ sum }}
 
 	.card-finance__main.main-block(
 		:class="'card-finance__main_' + main.background"
@@ -101,15 +107,48 @@ export default {
 	&__title {
 		display: grid;
 		gap: d(8);
+
+		&_pool {
+			display: flex;
+			flex-direction: column-reverse;
+		}
+	}
+
+	&__icons {
+		display: flex;
+		align-items: center;
 	}
 
 	&__icon {
 		height: d(34);
 		width: d(34);
+		display: flex;
 
 		img {
 			height: 100%;
 			width: 100%;
+		}
+
+		::v-deep {
+			svg {
+				margin: auto;
+				height: 100%;
+				width: 100%;
+			}
+		}
+
+		&_pool {
+			background-color: $pink;
+			border-radius: 50%;
+			transform: translateX(d(-10));
+
+			::v-deep {
+				svg {
+					margin: auto;
+					height: d(12);
+					width: d(23);
+				}
+		}
 		}
 	}
 
@@ -117,7 +156,7 @@ export default {
 		font-family: "Zen Dots";
 		font-weight: 400;
 		font-size: d(12);
-		line-height: d(42);
+		line-height: d(12);
 		letter-spacing: 0.1em;
 
 		color: $white;
@@ -127,11 +166,17 @@ export default {
 			width: 1.5ch;
 			color: $pink;
 		}
+
+		&_pool {
+			line-height: d(12);
+		}
 	}
 
 	&__amount {
 		display: flex;
 	}
+
+
 }
 
 .main-block {
