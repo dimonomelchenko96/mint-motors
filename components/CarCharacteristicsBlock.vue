@@ -1,26 +1,26 @@
 <template lang="pug">
-.characteristics
-	.characteristics__top
-		img.characteristics__img(src='../assets/img/car-market/Bmw.png')
-		.characteristics__top-right
-			.characteristics__start-production {{data.startProd}}
-			h3.characteristics__brand {{data.brand}}
-			.characteristics__end-production {{data.endProd}}
-	.characteristics__characteristics
-		.characteristics__item(
+.card
+	.card__top
+		img.card__img(src='../assets/img/car-market/Bmw.png')
+		.card__top-right
+			.card__start-production {{data.startProd}}
+			h3.card__brand {{data.brand}}
+			.card__end-production {{data.endProd}}
+	.card__characteristics
+		.card__item(
 			v-for="(item, i) in data.params"
 		)
-			.characteristics__parameter {{item.characteristic}}
-			.characteristics__value-block 
-				.characteristics__value(
-					:class="`characteristics__value_${data.state}`"
+			.card__parameter {{item.characteristic}}
+			.card__value-block 
+				.card__value(
+					:class="`card__value_${data.state}`"
 				) {{item.value}}
-				.characteristics__persent(
+				.card__persent(
 					v-if="data.state === 'crashed'"
 				) {{item.percent}} 
 	MainButton(
 		buttonText="Start Race"
-		buttonIcon="arrow"
+		buttonIcon="testdrive"
 		theme='blue'
 	)
 
@@ -38,7 +38,11 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+<<<<<<< HEAD
 .characteristics {
+=======
+.card {
+>>>>>>> dev_omelchenko
 	&__top {
 		display: flex;
 	}
