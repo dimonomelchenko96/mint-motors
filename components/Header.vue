@@ -9,14 +9,14 @@ header.header
 					to="/"
 					:class="{'active': $route.path === '/' }"
 				).link__content
-					include ../assets/svg/layout/house.svg
+					include ../assets/svg/layout/home.svg
 					p Home
 			.navigation__link
 				nuxt-link(
 					to="world"
 					:class="{'active': $route.path === '/world' }"
 				).link__content
-					include ../assets/svg/layout/globe.svg
+					include ../assets/svg/layout/world.svg
 					p World
 		.navigation(
 			v-else
@@ -28,7 +28,10 @@ header.header
 					v-if="homeOrWorld === el.show"
 					:key="el.to"
 				).bread-crumbs__link
-					include ../assets/svg/layout/house.svg
+					template
+						.link__images(
+							v-html="require(`~/assets/svg/layout/${el.show}.svg?raw`)"
+						)
 					p {{el.text}}
 			span.slash /
 			.bread-crumbs
@@ -49,7 +52,7 @@ header.header
 			)
 				span.slash /
 				p.track-day(
-					v-if="trackNumber"
+					v-if="trackNumber && secondParam === 'racing'"
 				) Track day &#35{{trackNumber}}
 
 	.balance
@@ -206,12 +209,17 @@ export default {
 				justify-content: center;
 				align-items: center;
 
-				svg {
-					width: d(14);
-					height: d(14);
+				.link__images {
 					margin-right: d(9);
-					path {
-						fill: #fff;
+					svg {
+						width: d(14);
+						height: d(14);
+						margin-right: d(9);
+
+						path {
+							fill: #fff;
+							margin-right: d(100);
+						}
 					}
 				}
 
