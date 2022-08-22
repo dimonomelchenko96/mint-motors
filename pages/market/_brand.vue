@@ -10,19 +10,19 @@
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import CarCardMarket from '../../components/carCards/CarCardMarket';
+import CarCardMarket from '~/components/carCards/CarCardMarket';
 
 export default {
-    name: 'Market-brand',
+	name: 'Market-brand',
 
-    mounted() {
-        this.model = this.$route.params.brand;
-    },
+	mounted() {
+		this.model = this.$route.params.brand;
+	},
 
-    components: {
-        CarCharacteristicsBlock,
+	components: {
+		CarCharacteristicsBlock,
 		CarCardMarket,
-    },
+	},
 
 	data() {
 		return {
@@ -60,11 +60,11 @@ export default {
 	height: 100vh;
 	position: relative;
 
-    &__car-card {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-    }
+	&__car-card {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
 
 	&__car-characteristics {
 		position: absolute;

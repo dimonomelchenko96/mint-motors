@@ -27,7 +27,7 @@ export default {
 					id: 1,
 					link: 'garage',
 					name: 'Garage',
-					numderOfCars: '04',
+					numderOfCars: '4',
 					icon: 'garage_icon',
 					image: 'avto_big',
 					param: {

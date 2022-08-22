@@ -38,9 +38,4 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.card-balance {
-	// height: 300px;
-	// width: 300px;
-	// display: flex;
-}
 </style>

@@ -1,20 +1,29 @@
 <template lang="pug">
 .car-card-market
-    CarCard(
-        :header="header"
-    )
+	CarCard(
+		:header="header"
+		:active="active"
+		:button="button"
+	)
 </template>
 
 <script>
-import CarCard from './CarCard';
+import CarCard from '~/components/carCards/CarCard';
 
 export default {
+	props: ['active'],
+
 	data() {
 		return {
 			header: {
 				icon: 'buy',
 				text: '20 000 MTR',
 			},
+			active: this.active,
+			button: {
+				buttonText: 'Buy NFT',
+				buttonTheme: 'blue',
+			}
 		};
 	},
 	methods: {},
