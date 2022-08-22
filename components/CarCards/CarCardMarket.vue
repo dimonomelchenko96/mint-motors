@@ -2,7 +2,6 @@
 .car-card-market
     CarCard(
         :header="header"
-        :button="button"
     )
 </template>
 

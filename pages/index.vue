@@ -1,20 +1,18 @@
 <template lang="pug">
 .home
 	.home__container
-		.home__link(
+		CardHome.home__link(
 			v-for="card in cards"
 			:key="card.id"
 			:class="'home__link_position-' + card.param.blockPosition"
+			:name="card.name"
+			:numderOfCars="card.numderOfCars"
+			:icon="card.icon"
+			:image="card.image"
+			:arrow="card.arrow"
+			:param="card.param"
+			:link="card.link"
 		)
-			CardHome(
-				:name="card.name"
-				:numderOfCars="card.numderOfCars"
-				:icon="card.icon"
-				:image="card.image"
-				:arrow="card.arrow"
-				:param="card.param"
-				:link="card.link"
-			)
 </template>
 
 <script>
