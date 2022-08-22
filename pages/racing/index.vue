@@ -1,21 +1,30 @@
 <template lang="pug">
 .racing
-	p Racing
+	TrackDayCard.racing__card
 </template>
 
 <script>
+import TrackDayCard from '~/components/ui/RacingTrack/TrackDayCard.vue';
+
 export default {
-    name: 'Racing',
+	name: 'Racing',
+
+	components: {
+		TrackDayCard,
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 .racing {
-    p {
-        text-align: center;
-        padding: 200px;
-        font-size: 70px;
-        color: #fff;
-    }
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	height: 100vh;
+
+	&__card {
+		width: d(612);
+		height: d(414);
+	}
 }
 </style>
