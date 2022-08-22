@@ -150,6 +150,8 @@ export default {
 .header {
 	display: flex;
 	justify-content: space-between;
+	z-index: 100;
+
 	.navigation {
 		display: flex;
 

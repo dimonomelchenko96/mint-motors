@@ -1,21 +1,20 @@
 <template lang="pug">
-nuxt-link(
+nuxt-link.brand-card(
 	:to="`market/${brand}`"
 	:class="{'link-disabled' : start}"
 )
-	.brand-card
-		.brand-card__amount
-			.brand-card__amount-inner(
-				:class="{'brand-card__amount-inner_upcoming' : start}"
-			) {{start ? start : amount.toString().length > 1 ? amount : "0" + amount}}
-		img.brand-card__img(
-			:class="[start && 'opacity']"
-			:src="require(`../assets/img/car-market/${brand}.png`)"
-			:alt='brand'
-		)
-		.brand-card__brand(
-			:class="[start && 'opacity']"
-		) {{brand}}
+    .brand-card__amount
+        .brand-card__amount-inner(
+            :class="{'brand-card__amount-inner_upcoming' : start}"
+        ) {{start ? start : amount > 9 ? amount : "0" + amount}}
+    img.brand-card__img(
+        :class="[start && 'opacity']"
+        :src="require(`~/assets/img/car-market/${brand}.png`)"
+        :alt='brand'
+    )
+    .brand-card__brand(
+        :class="[start && 'opacity']"
+    ) {{brand}}
 </template>
 
 <script>

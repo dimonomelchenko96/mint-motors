@@ -38,11 +38,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-<<<<<<< HEAD
-.characteristics {
-=======
 .card {
->>>>>>> dev_omelchenko
 	&__top {
 		display: flex;
 	}

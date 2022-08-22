@@ -10,7 +10,7 @@ nuxt-link.card-home(
 		.card-home__icon
 			img(
 				v-if="icon"
-				:src="require(`../assets/svg/home/${icon}.svg`)"
+				:src="require(`~/assets/svg/home/${icon}.svg`)"
 			)
 		.card-home__info
 			h2.card-home__title(
@@ -25,19 +25,13 @@ nuxt-link.card-home(
 				v-if="arrow"
 			)
 				img(
-					:src="require(`../assets/svg/home/${arrow}.svg`)"
-				)
-		.card-home__img(
-			:class="'card-home__img_position-' + param.imgPosition"
-		)
-				img(
-					:src="require(`../assets/svg/home/${arrow}.svg`)"
+					:src="require(`~/assets/svg/home/${arrow}.svg`)"
 				)
 	.card-home__img(
 		:class="'card-home__img_position-' + param.imgPosition"
 	)
 			img(
-				:src="require(`../assets/img/home/${image}.png`)"
+				:src="require(`~/assets/img/home/${image}.png`)"
 			)
 </template>
 
