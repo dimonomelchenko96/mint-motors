@@ -4,7 +4,7 @@ div racing - track
 
 <script>
 export default {
-    name: 'Racing-track',
+	name: 'Racing-track',
 };
 </script>
 

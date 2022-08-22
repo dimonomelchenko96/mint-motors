@@ -6,7 +6,7 @@
 		)
 			.header-block__icon
 				img(
-					src="../../assets/svg/finance/fox.svg"
+					src="~/assets/svg/finance/fox.svg"
 				)
 
 			.header-block__name {{ name }}
@@ -33,22 +33,26 @@
 			.header-block__name.header-block__name_pool Apr
 			.header-block__name.header-block__name_turquoise {{ sum }}
 
-	.card-finance__main.main-block(
-		:class="'card-finance__main_' + main.background"
+	.main-block.card-finance__main(
+		:class="'main-block_' + main.background"
 	)
-		.main-block__title
+		.main-block__title(
+			:class="name === 'Staking Pool' && 'main-block__title_pool'"
+		)
 			.main-block__icon(
 				:class="'main-block__icon_' + main.icon"
 			)
 				include ../../assets/svg/finance/mtr-logo.svg
-			.main-block__name {{ main.name}}
+			.main-block__name(
+				:class="'main-block__name_' + main.icon"
+			) {{ main.name}}
 		.main-block__sum {{ main.amount }}
 		MainButton(
 			:buttonText="main.button.name"
 			:theme="main.button.background"
 		)
 
-	.card-finance__more.more 
+	.more.card-finance__more
 		.more__text More
 		.more__icon
 			include ../../assets/svg/finance/arrow_down.svg
@@ -67,7 +71,7 @@ export default {
 
 	components: {
 		MainButton,
-	}
+	},
 };
 </script>
 
@@ -75,8 +79,8 @@ export default {
 .card-finance {
 	padding: d(18);
 	// height: 300px;
-	width: 300px;
-	background-color: #201F23;
+	width: 100%;
+	background-color: #201f23;
 
 	border-radius: d(10);
 
@@ -85,17 +89,7 @@ export default {
 	}
 
 	&__main {
-		border-radius: d(8);
-		padding: d(12);
 		margin-bottom: d(8);
-
-		&_black {
-			background-color: #19191F;
-		}
-
-		&_pink {
-			background-color: $pink;
-		}
 	}
 
 	&__more {
@@ -154,12 +148,12 @@ export default {
 					height: d(12);
 					width: d(23);
 				}
-		}
+			}
 		}
 	}
 
 	&__name {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-weight: 400;
 		font-size: d(12);
 		line-height: d(12);
@@ -197,9 +191,24 @@ export default {
 }
 
 .main-block {
+	border-radius: d(8);
+	padding: d(12);
+
+	&_black {
+		background-color: #19191f;
+	}
+
+	&_pink {
+		background-color: $pink;
+	}
+
 	&__title {
 		display: flex;
 		margin-bottom: d(12);
+
+		&_pool {
+			justify-content: center;
+		}
 	}
 
 	&__icon {
@@ -221,30 +230,33 @@ export default {
 		}
 
 		&_black {
-			background-color: #1D232A;
+			background-color: #1d232a;
 
 			::v-deep {
 				svg {
 					path {
 						fill: $pink;
 					}
-					
 				}
 			}
 		}
 	}
 
 	&__name {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-weight: 400;
 		font-size: d(12);
 		line-height: d(18);
 
 		color: $pink;
+
+		&_black {
+			color: #1D232A;
+		}
 	}
 
 	&__sum {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-weight: 400;
 		font-size: d(35);
 		line-height: d(42);
@@ -257,7 +269,7 @@ export default {
 
 .more {
 	&__text {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-weight: 400;
 		font-size: d(12);
 		line-height: d(42);

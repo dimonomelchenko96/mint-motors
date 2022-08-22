@@ -10,7 +10,8 @@ nuxt-link.card-home(
 		.card-home__icon
 			img(
 				v-if="icon"
-				:src="require(`~/assets/svg/home/${icon}.svg`)"
+				:src="require(`../assets/svg/home/${icon}.svg`)"
+				:alt="icon"
 			)
 		.card-home__info
 			h2.card-home__title(
@@ -19,20 +20,22 @@ nuxt-link.card-home(
 
 			.card-home__number(
 				v-if="numderOfCars"
-			) {{ numderOfCars }}
+			) {{ numderOfCars > 9 ? numderOfCars : '0' + numderOfCars }}
 
 			.card-home__arrow(
 				v-if="arrow"
 			)
 				img(
-					:src="require(`~/assets/svg/home/${arrow}.svg`)"
+					:src="require(`../assets/svg/home/${arrow}.svg`)"
 				)
-	.card-home__img(
-		:class="'card-home__img_position-' + param.imgPosition"
-	)
-			img(
-				:src="require(`~/assets/img/home/${image}.png`)"
-			)
+		.card-home__img(
+			:class="['card-home__img_position-' + param.imgPosition, name === 'Finance' && 'card-home__img_finance']"
+		)
+				img(
+
+					:src="require(`~/assets/img/home/${image}.png`)"
+					:alt="image"
+				)
 </template>
 
 <script>
@@ -62,7 +65,7 @@ export default {
 	height: 100%;
 	position: relative;
 
-	border-radius: d(6);
+	
 
 	&__icon {
 		width: d(38);
@@ -95,6 +98,17 @@ export default {
 				align-items: flex-end;
 			}
 		}
+
+		&_finance {
+			width: 96px;
+			height: 96px;
+			background-color: #fff;
+			border-radius: 50%;
+			top: 50%;
+			left: 50%;
+			transform: translate(-50%, -50%);
+			background-color: #5AD0A6;
+		}
 	}
 
 	&__arrow {
@@ -113,6 +127,7 @@ export default {
 	&__block {
 		height: 100%;
 		width: 100%;
+		border-radius: d(6);
 
 		display: flex;
 		flex-direction: column;

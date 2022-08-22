@@ -1,20 +1,24 @@
 <template lang="pug">
-.car-card
+.car-card(
+	:class="!active && 'car-card_not-active'"
+)
 	.car-card__block
 		.car-card__header(
 			v-if="header"
+			:class="!active && 'car-card__header_not-active'"
 		)
 			.car-card__icon(
-				v-html="require(`../../assets/svg/car-card/${header.icon}.svg?raw`)"
+				v-html="require(`~/assets/svg/car-card/${header.icon}.svg?raw`)"
 			)
 
 			.car-card__text {{ header.text }}
 
 	.car-card__img
 		img(
-			:src="require('../../assets/img/car-card/car_card.png')"
+			:src="require('~/assets/img/car-card/car_card.png')"
 		)
 	MainButton(
+		v-if="active"
 		:buttonText="button.buttonText"
 		:theme="button.buttonTheme"
 	)
@@ -25,14 +29,10 @@
 import MainButton from '~/components/button/MainButton';
 
 export default {
-	props: ["header"],
+	props: ['header', 'active', 'button'],
 
 	data() {
 		return {
-			button: {
-				buttonText: 'Buy NFT',
-				buttonTheme: 'blue',
-			}
 		};
 	},
 
@@ -40,16 +40,21 @@ export default {
 
 	components: {
 		MainButton,
-	}
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 .car-card {
-    background-color: rgba(255, 255, 255, 0.12);
+	background-color: rgba(255, 255, 255, 0.12);
 	padding: d(10);
 
 	border-radius: d(10);
+
+	&_not-active {
+		background-color: transparent;
+		// padding: 0;
+	}
 
 	&__header {
 		margin-bottom: d(10);
@@ -57,6 +62,10 @@ export default {
 
 		display: flex;
 		justify-content: space-between;
+
+		&_not-active {
+			opacity: 0;
+		}
 	}
 
 	&__icon {
@@ -72,7 +81,7 @@ export default {
 	}
 
 	&__text {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-weight: 400;
 		font-size: d(12);
 		line-height: d(18);

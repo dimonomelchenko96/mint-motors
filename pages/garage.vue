@@ -1,21 +1,94 @@
 <template lang="pug">
 .garage
-	p Garage
+	img.garage__img(
+		src="~/assets/img/car-market/car.png"
+	)
+	.garage__car-characteristics
+		CarCharacteristicsBlock(
+            :data="data"
+		)
+	.garage__card
+		CarCardMarket(
+			:active="true"
+		)
+		CarCardMarket(
+			:active="false"
+		)
 </template>
 
 <script>
+import CarCardMarket from '~/components/carCards/CarCardMarket';
+import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
+
+
 export default {
-    name: 'Garage',
+	name: 'Garage',
+
+	components: {
+		CarCardMarket,
+		CarCharacteristicsBlock,
+	},
+
+	mounted() {
+		this.model = this.$route.params.brand;
+	},
+
+	data() {
+		return {
+			model: '',
+			data: {
+				startProd: 1973,
+				endProd: 2002,
+				brand: 'BMW',
+				state: 'crashed',
+				params: [
+					{
+						characteristic: 'Power',
+						value: '320 hp',
+						percent: '-10%',
+					},
+					{
+						characteristic: 'Max speed:',
+						value: '210 km/h',
+						percent: '-20%',
+					},
+					{
+						characteristic: 'Up to 100km/h:',
+						value: '6.2 sec',
+						percent: '-10%',
+					},
+				],
+			},
+		};
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 .garage {
-    p {
-        text-align: center;
-        padding: 200px;
-        font-size: 70px;
-        color: #fff;
-    }
+	height: 100vh;
+	position: relative;
+
+	&__card {
+		display: flex;
+	}
+
+	&__car-card {
+
+		position: absolute;
+		top: 50%;
+		left: 50%;
+	}
+
+	&__car-characteristics {
+		position: absolute;
+		top: d(78);
+		left: d(38);
+	}
+
+	&__img {
+		max-width: d(1440);
+		width: 100%;
+	}
 }
 </style>
