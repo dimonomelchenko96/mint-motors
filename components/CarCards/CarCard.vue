@@ -25,14 +25,14 @@
 import MainButton from '~/components/button/MainButton';
 
 export default {
-	props: ["header"],
+	props: ['header'],
 
 	data() {
 		return {
 			button: {
 				buttonText: 'Buy NFT',
 				buttonTheme: 'blue',
-			}
+			},
 		};
 	},
 
@@ -40,13 +40,13 @@ export default {
 
 	components: {
 		MainButton,
-	}
+	},
 };
 </script>
 
 <style lang="scss" scoped>
 .car-card {
-    background-color: rgba(255, 255, 255, 0.12);
+	background-color: rgba(255, 255, 255, 0.12);
 	padding: d(10);
 
 	border-radius: d(10);
@@ -72,7 +72,7 @@ export default {
 	}
 
 	&__text {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-weight: 400;
 		font-size: d(12);
 		line-height: d(18);

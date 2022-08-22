@@ -7,7 +7,7 @@ export default {
 	name: 'TrackDayCard',
 	data() {
 		return {
-			trackDayDAta:
+			trackDayDAta: 1,
 		};
 	},
 };

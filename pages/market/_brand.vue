@@ -7,13 +7,15 @@
 		CarCharacteristicsBlock(
             :data="data"
 		)
-	//- .market__car-card
-	//- 	CarCardMarket
+
+	.market__carousel
+		Carousel
+	
 </template>
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import CarCardMarket from '../../components/carCards/CarCardMarket';
+import Carousel from '~/components/Carousel';
 
 export default {
 	name: 'Market-brand',
@@ -24,7 +26,7 @@ export default {
 
 	components: {
 		CarCharacteristicsBlock,
-		CarCardMarket,
+		Carousel,
 	},
 
 	data() {
@@ -73,6 +75,12 @@ export default {
 		position: absolute;
 		top: d(78);
 		left: d(38);
+	}
+
+	&__carousel {
+		position: absolute;
+		bottom: d(40);
+		width: 100%;
 	}
 
 	&__img {
