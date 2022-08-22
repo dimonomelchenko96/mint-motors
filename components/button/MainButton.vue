@@ -1,6 +1,9 @@
 <template lang="pug">
-    button.button(
-        :class="`button_${theme}`"
+button.button(
+    :class="`button_${theme}`"
+)
+    .button__icon(
+        v-if="buttonIcon" 
     )
         .button__icon(
             v-if="buttonIcon" 
@@ -34,6 +37,10 @@ export default {
 	&_blue {
 		background: #001aff;
 		color: #ffffff;
+	}
+	&_pink {
+		background: $pink;
+		color: #000;
 	}
 	&__text {
 		font-family: 'Montserrat';
