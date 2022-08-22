@@ -33,7 +33,6 @@ export default {
 
 	data() {
 		return {
-
 		};
 	},
 
@@ -41,7 +40,7 @@ export default {
 
 	components: {
 		MainButton,
-	}
+	},
 };
 </script>
 
@@ -82,7 +81,7 @@ export default {
 	}
 
 	&__text {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-weight: 400;
 		font-size: d(12);
 		line-height: d(18);

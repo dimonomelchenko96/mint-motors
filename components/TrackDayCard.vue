@@ -1,10 +1,15 @@
 <template lang="pug">
-div racing - track
+
 </template>
 
 <script>
 export default {
-	name: 'Racing-track',
+	name: 'TrackDayCard',
+	data() {
+		return {
+			trackDayDAta: 1,
+		};
+	},
 };
 </script>
 

@@ -37,5 +37,6 @@ export default {
 <style lang="scss" scoped>
 .car-card-market {
 	display: flex;
+	width: 100%;
 }
 </style>

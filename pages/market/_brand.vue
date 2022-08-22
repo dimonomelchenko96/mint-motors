@@ -1,16 +1,21 @@
 <template lang="pug">
 .market
+	img.market__img(
+		src="~/assets/img/car-market/car.png"
+	)
 	.market__car-characteristics
 		CarCharacteristicsBlock(
             :data="data"
 		)
-	.market__car-card
-		CarCardMarket
+
+	.market__carousel
+		Carousel
+	
 </template>
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import CarCardMarket from '~/components/carCards/CarCardMarket';
+import Carousel from '~/components/Carousel';
 
 export default {
 	name: 'Market-brand',
@@ -21,7 +26,7 @@ export default {
 
 	components: {
 		CarCharacteristicsBlock,
-		CarCardMarket,
+		Carousel,
 	},
 
 	data() {
@@ -31,7 +36,7 @@ export default {
 				startProd: 1973,
 				endProd: 2002,
 				brand: 'BMW',
-				state: 'crashed',
+				state: 'new',
 				params: [
 					{
 						characteristic: 'Power',
@@ -70,6 +75,17 @@ export default {
 		position: absolute;
 		top: d(78);
 		left: d(38);
+	}
+
+	&__carousel {
+		position: absolute;
+		bottom: d(40);
+		width: 100%;
+	}
+
+	&__img {
+		max-width: d(1440);
+		width: 100%;
 	}
 }
 </style>

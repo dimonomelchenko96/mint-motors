@@ -2,15 +2,11 @@
 button.button(
     :class="`button_${theme}`"
 )
-    .button__icon(
-        v-if="buttonIcon" 
-    )
-        template
-            div.button__icon-inner(
-                style="display:flex"
-                v-html="require(`../../assets/svg/button/${buttonIcon}.svg?raw`)"
-            )
-    .button__text {{ buttonText }}
+	.button__icon(
+		v-if="buttonIcon" 
+		v-html="require(`../../assets/svg/button/${buttonIcon}.svg?raw`)"
+	)
+	.button__text {{ buttonText }}
 </template>
 
 <script>
@@ -25,6 +21,7 @@ export default {
 	width: 100%;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	border-radius: d(10);
 	background: #f7f7f7;
 	color: #000000;
@@ -52,12 +49,12 @@ export default {
 	}
 	&__icon {
 		margin-right: d(10);
-		&-inner {
-			width: d(16);
-			height: d(16);
-			svg {
-				width: 100%;
-			}
+		width: d(16);
+		height: d(16);
+		
+		::v-deep svg {
+			width: 100%;
+			height: 100%;
 		}
 	}
 }

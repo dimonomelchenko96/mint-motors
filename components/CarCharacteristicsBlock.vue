@@ -1,44 +1,35 @@
 <template lang="pug">
-.characteristics-card
-	.characteristics-card__top
-		img.characteristics-card__img(src='../assets/img/car-market/Bmw.png')
-		.characteristics-card__top-right
-			.characteristics-card__start-production {{data.startProd}}
-			h3.characteristics-card__brand {{data.brand}}
-			.characteristics-card__end-production {{data.endProd}}
-	.characteristics-card__characteristics
-		.characteristics-card__item(
+.card
+	.card__top
+		img.card__img(src='../assets/img/car-market/Bmw.png')
+		.card__top-right
+			.card__start-production {{data.startProd}}
+			h3.card__brand {{data.brand}}
+			.card__end-production {{data.endProd}}
+	.card__characteristics
+		.card__item(
 			v-for="(item, i) in data.params"
 		)
-			.characteristics-card__parameter {{item.characteristic}}
-			.characteristics-card__value-block 
-				.characteristics-card__value(
-					:class="`characteristics-card__value_${data.state}`"
+			.card__parameter {{item.characteristic}}
+			.card__value-block 
+				.card__value(
+					:class="`card__value_${data.state}`"
 				) {{item.value}}
-				.characteristics-card__persent(
+				.card__persent(
 					v-if="data.state === 'crashed'"
 				) {{item.percent}} 
-	MainButton(
-		buttonText="Start Race"
-		buttonIcon="arrow"
-		theme='blue'
-	)
-
 </template>
 
 <script>
-import MainButton from '~/components/button/MainButton';
-
 export default {
 	props: ['data'],
 	components: {
-		MainButton,
 	},
 };
 </script>
 
 <style lang="scss" scoped>
-.characteristics-card {
+.card {
 	&__top {
 		display: flex;
 	}
@@ -83,7 +74,6 @@ export default {
 		padding: d(12);
 		width: d(170);
 		background: rgba(224, 237, 255, 0.05);
-		backdrop-filter: blur(d(114));
 		border-radius: d(8);
 	}
 	&__item {

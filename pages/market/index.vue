@@ -21,7 +21,7 @@ export default {
 			data: [
 				{
 					brand: 'Audi',
-					amount: 3,
+					amount: 10,
 					start: '',
 				},
 				{

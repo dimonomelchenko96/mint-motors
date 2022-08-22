@@ -1,6 +1,7 @@
 <template lang="pug">
 nuxt-link.card-home(
 	:to="'/' + link"
+	:class="'card-home_background-' + param.background"
 )
 	.card-home__block(
 		:class="'card-home__block_background-' + param.background"
@@ -35,13 +36,6 @@ nuxt-link.card-home(
 					:src="require(`~/assets/img/home/${image}.png`)"
 					:alt="image"
 				)
-				//- .card-home__img_finance(
-				//- 	img(
-				//- 		v-if="name === 'Finance'"
-				//- 		:src="require(`~/assets/img/home/${image}.png`)"
-				//- 		:alt="image"
-				//- 	)
-				//- )
 </template>
 
 <script>
