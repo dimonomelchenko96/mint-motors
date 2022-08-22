@@ -18,21 +18,12 @@
 				.card__persent(
 					v-if="data.state === 'crashed'"
 				) {{item.percent}} 
-	MainButton(
-		buttonText="Start Race"
-		buttonIcon="testdrive"
-		theme='blue'
-	)
-
 </template>
 
 <script>
-import MainButton from '~/components/button/MainButton';
-
 export default {
 	props: ['data'],
 	components: {
-		MainButton,
 	},
 };
 </script>
@@ -83,7 +74,6 @@ export default {
 		padding: d(12);
 		width: d(170);
 		background: rgba(224, 237, 255, 0.05);
-		backdrop-filter: blur(d(114));
 		border-radius: d(8);
 	}
 	&__item {

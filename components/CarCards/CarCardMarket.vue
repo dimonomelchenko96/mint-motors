@@ -6,7 +6,7 @@
 </template>
 
 <script>
-import CarCard from './CarCard';
+import CarCard from '~/components/CarCards/CarCard';
 
 export default {
 	data() {

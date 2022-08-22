@@ -1,6 +1,6 @@
 <template lang="pug">
 .card-finance
-	.card-finance__header.header-block
+	.header-block.card-finance__header
 		.header-block__title(
 			v-if="name === 'Balance'"
 		)
