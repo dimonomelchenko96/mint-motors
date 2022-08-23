@@ -15,7 +15,7 @@
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import Carousel from '~/components/Carousel';
+import Carousel from '~/components/carousels/Carousel';
 
 export default {
 	name: 'Market-brand',

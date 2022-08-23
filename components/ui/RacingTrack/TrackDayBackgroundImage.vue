@@ -1,5 +1,5 @@
 <template lang="pug">
-.track-players
+.track-background
     img(
         :src="img2"
     )
@@ -21,13 +21,14 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.track-players {
+.track-background {
 	position: absolute;
 	top: 0;
 	left: 0;
 	height: 100%;
 	width: 100%;
 	border-radius: d(14);
+	z-index: -1;
 
 	img {
 		width: 100%;

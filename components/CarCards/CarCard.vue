@@ -48,7 +48,7 @@ export default {
 
 <style lang="scss" scoped>
 .car-card {
-	background-color: rgba(255, 255, 255, 0.12);
+	background-color: #363431;
 	padding: d(10);
 
 	border-radius: d(10);
@@ -61,11 +61,12 @@ export default {
 				content: '';
 				position: absolute;
 				width: 100%;
-				height: 100%;
+				height: 98%;
 				background: rgba(0, 0, 0, 0.7);
 				left: 0;
 				top: 0;
 				transition: opacity 0.6s;
+				border-radius: d(5);
 			}
 		}
 	}

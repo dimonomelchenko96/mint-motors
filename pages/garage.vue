@@ -25,7 +25,6 @@
 import CarCardGarage from '~/components/carCards/CarCardGarage';
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
 
-
 export default {
 	name: 'Garage',
 
@@ -81,7 +80,6 @@ export default {
 	}
 
 	&__car-card {
-
 		position: absolute;
 		top: 50%;
 		left: 50%;
