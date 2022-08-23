@@ -2,8 +2,10 @@
 .car-card-garage
 	CarCard(
 		:active="active"
-		:button="buttonRace"
+		:button="broken ? buttonBroken : buttonRace"
 		:empty="empty"
+		:header="crashed && isCrashed || broken && isBroken"
+		:broken="broken"
 	)
 </template>
 
@@ -11,19 +13,19 @@
 import CarCard from '~/components/carCards/CarCard';
 
 export default {
-	props: ['active', 'empty'],
+	props: ['active', 'empty', 'crashed', 'broken'],
 
 	data() {
 		return {
 			// active: true,
 
-			crashed: {
-				name: 'Car crashed',
+			isCrashed: {
+				text: 'Car crashed',
 				icon: 'crashed',
 			},
 
-			broken: {
-				name: 'Car broken',
+			isBroken: {
+				text: 'Car broken',
 				icon: 'broken'
 			},
 
@@ -39,10 +41,10 @@ export default {
 			// 	buttonIcon: 'race',
 			// },
 
-			buttonCrashed: {
+			buttonBroken: {
 				buttonText: 'Utilize',
 				buttonTheme: 'black',
-				buttonIcon: 'crashed',
+				buttonIcon: 'broken',
 			}
 		};
 	},

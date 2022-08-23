@@ -19,6 +19,21 @@
 			:active="false"
 			:empty="true"
 		)
+
+		CarCardGarage(
+			:active="true"
+			:crashed="true"
+		)
+
+		CarCardGarage(
+			:active="true"
+			:broken="true"
+		)
+
+		CarCardGarage(
+			:active="false"
+			:broken="true"
+		)
 </template>
 
 <script>

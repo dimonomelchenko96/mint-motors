@@ -25,18 +25,27 @@ export default {
 	border-radius: d(10);
 	background: #f7f7f7;
 	color: #000000;
+
 	&_gray {
 		background: #232323;
 		color: #ffffff;
 	}
+
 	&_blue {
 		background: #001aff;
 		color: #ffffff;
 	}
+
 	&_pink {
 		background: $pink;
 		color: #000;
 	}
+
+	&_black {
+		background: #000;
+		color: $white;
+	}
+
 	&__text {
 		font-family: 'Montserrat';
 		font-style: normal;
