@@ -3,7 +3,10 @@ VueSlickCarousel(v-bind="settings" @afterChange='change')
 
     div.carousel__block(v-for="i in 20")
         div.carousel__margin
-            CarCardMarket
+            CarCardMarket(
+					:key="i"
+					:active="activeSlide + 1 === i"
+				)
 
     template(#prevArrow="")
         button(class="carousel__arrow")
@@ -28,6 +31,7 @@ export default {
 	},
 	data() {
 		return {
+			activeSlide: 0,
 			settings: {
 				centerMode: true,
 				centerPadding: '30px',
@@ -40,25 +44,21 @@ export default {
 		};
 	},
 	methods: {
-		log() {
-			console.log(this.$refs);
-		},
 		change(prev) {
 			console.log(prev);
+			this.activeSlide = prev;
 		},
 	},
 	mounted() {},
 };
 </script>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .carousel {
 	&__margin {
-		margin: 0 d(14);
+		margin: 0 d(5);
 	}
 
-	&__block {
-	}
 	&__arrow {
 		display: flex;
 		justify-content: center;
@@ -79,7 +79,7 @@ export default {
 		}
 	}
 }
-.slick {
+::v-deep .slick {
 	&-prev,
 	&-next {
 		z-index: 100;
@@ -96,9 +96,6 @@ export default {
 	}
 	&-next {
 		right: d(54);
-	}
-	&-current {
-		border: 1px solid orange !important;
 	}
 }
 </style>

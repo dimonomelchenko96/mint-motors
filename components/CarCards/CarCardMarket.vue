@@ -19,11 +19,11 @@ export default {
 				icon: 'buy',
 				text: '20 000 MTR',
 			},
-			active: this.active,
+			// activeSlide: this.active,
 			button: {
 				buttonText: 'Buy NFT',
 				buttonTheme: 'blue',
-			}
+			},
 		};
 	},
 	methods: {},
