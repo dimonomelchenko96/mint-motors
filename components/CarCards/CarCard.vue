@@ -55,7 +55,19 @@ export default {
 
 	&_not-active {
 		background-color: transparent;
-		opacity: 0.3;
+		& .car-card__img {
+			position: relative;
+			&::after {
+				content: '';
+				position: absolute;
+				width: 100%;
+				height: 100%;
+				background: rgba(0, 0, 0, 0.7);
+				left: 0;
+				top: 0;
+				transition: opacity 0.6s;
+			}
+		}
 	}
 
 	&__header {

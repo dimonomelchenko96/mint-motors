@@ -1,6 +1,5 @@
 <template lang="pug">
 VueSlickCarousel(v-bind="settings" @afterChange='change')
-
     div.carousel__block(v-for="i in 20")
         div.carousel__margin
             CarCardMarket(
@@ -39,13 +38,12 @@ export default {
 				slidesToShow: 7,
 				speed: 500,
 				arrow: false,
-				draggable: true,
+				draggable: false,
 			},
 		};
 	},
 	methods: {
-		change(prev) {
-			console.log(prev);
+		change(prev, next) {
 			this.activeSlide = prev;
 		},
 	},
@@ -96,6 +94,9 @@ export default {
 	}
 	&-next {
 		right: d(54);
+	}
+	&-slide {
+		cursor: pointer;
 	}
 }
 </style>
