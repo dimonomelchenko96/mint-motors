@@ -1,5 +1,7 @@
 <template lang="pug">
-.track-button
+nuxt-link.track-button(
+	:to="`racing/${trackId}`"
+)
     p Start race
     .track-button__arrow
 
@@ -8,6 +10,8 @@
 <script>
 export default {
 	name: 'TrackDayButton',
+
+	props: ['trackId'],
 };
 </script>
 

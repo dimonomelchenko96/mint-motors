@@ -108,10 +108,6 @@ export default {
 		justify-content: center;
 		align-items: center;
 		margin-right: d(28);
-		&.first-bread-crumbs {
-			width: d(98);
-			height: d(42);
-		}
 
 		p {
 			font-family: 'Zen Dots';

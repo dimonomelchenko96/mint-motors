@@ -5,6 +5,12 @@ div racing - track
 <script>
 export default {
 	name: 'Racing-track',
+
+	data() {
+		return {
+			track: 123123,
+		};
+	},
 };
 </script>
 

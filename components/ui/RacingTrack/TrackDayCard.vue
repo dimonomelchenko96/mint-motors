@@ -11,7 +11,9 @@
 			TrackDayTitle.track-day-card__title(
 				:title="title"
 			)
-			TrackDayButton
+			TrackDayButton(
+				:trackId="trackId"
+			)
 		.container__reward
 			TrackDay1stReward.track-day-card__reward(
 				:reward="reward"
@@ -35,6 +37,7 @@ import TrackDayPrice from '~/components/ui/RacingTrack/TrackDayPrice.vue';
 
 export default {
 	name: 'TrackDayCard',
+
 	components: {
 		TrackDayTitle,
 		TrackDayPlayers,
@@ -45,23 +48,16 @@ export default {
 		TrackDayPrice,
 	},
 
-	data() {
-		return {
-			// TrackDayPlayers
-			allPlayers: 4,
-			currentPlayers: 0,
-			titlePlayers: 'players',
-			// TrackDayTitle
-			title: 'track day',
-
-			// TrackDay1stReward
-			reward: 6000,
-			// TrackDay2ndReward
-			reward2nd: 'none',
-			// TrackDayPrice
-			price: 4000,
-		};
-	},
+	props: [
+		'allPlayers',
+		'currentPlayers',
+		'titlePlayers',
+		'title',
+		'reward',
+		'reward2nd',
+		'price',
+		'trackId',
+	],
 };
 </script>
 
