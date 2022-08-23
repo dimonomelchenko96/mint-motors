@@ -1,6 +1,8 @@
 <template lang="pug">
 .track-price
-    span.track-price__text.track-price__text_opacity Participation price
+    span.track-price__text(
+		:class="[$route.fullPath === '/racing' && 'track-price__text_opacity' ]"
+	) Participation price
     .track-price__reward
         IconToken.track-price__reward_icon
         span.track-price__text.track-price__text_reward {{priceView}} mrt

@@ -56,7 +56,7 @@ export default {
 				if (arrPath[1] === '') this.initialStatus = true;
 				else if (arrPath[1] == 'world') this.initialStatus = true;
 				else this.initialStatus = false;
-			}
+			} else this.initialStatus = false;
 
 			this.secondParam = '';
 			this.thirdParam = '';

@@ -18,6 +18,7 @@
 
 <script>
 import TrackDayCard from '~/components/ui/RacingTrack/TrackDayCard';
+
 export default {
 	name: 'Racing',
 
