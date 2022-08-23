@@ -28,6 +28,7 @@
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import TrackDayCard from '~/components/ui/RacingTrack/TrackDayCard';
+
 export default {
 	name: 'Racing',
 
