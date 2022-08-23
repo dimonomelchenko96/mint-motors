@@ -1,7 +1,7 @@
 <template lang="pug">
 .track
 	.track-day
-		TrackDayBackgroundImage
+		TrackDayBackgroundImage.track-day__images
 		.container
 			.container__players
 				TrackDayPlayers.track-day__players(
@@ -103,7 +103,7 @@ export default {
 .track {
 	&-day {
 		position: relative;
-		height: 40vh;
+		height: 45vh;
 		display: flex;
 		flex-direction: column;
 		justify-content: flex-end;
@@ -126,6 +126,10 @@ export default {
 				flex-direction: column;
 				justify-content: flex-start;
 			}
+		}
+
+		&__images {
+			z-index: 1;
 		}
 
 		&__players {
@@ -182,6 +186,10 @@ export default {
 		padding-right: d(82);
 		margin: 0 auto;
 		cursor: pointer;
+		position: absolute;
+		bottom: d(49);
+		left: 50%;
+		transform: translate(-50%, -50%);
 	}
 }
 </style>
