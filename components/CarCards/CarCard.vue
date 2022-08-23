@@ -63,12 +63,12 @@ export default {
 				content: '';
 				position: absolute;
 				width: 100%;
-				height: 100%;
+				height: 98%;
 				background: rgba(0, 0, 0, 0.7);
 				left: 0;
 				top: 0;
 				transition: opacity 0.6s;
-				border-radius: d(6);
+				border-radius: d(5);
 			}
 		}
 	}
@@ -119,24 +119,6 @@ export default {
 
 	&__img {
 		margin-bottom: d(10);
-
-		&_broken {
-			filter: grayscale(1);
-
-			&::after {
-				content: '';
-				position: absolute;
-				width: 100%;
-				height: 100%;
-				background: rgba(0, 0, 0, 0.7);
-				left: 0;
-				top: 0;
-				transition: opacity 0.6s;
-				border-radius: d(6);
-			}
-		}
-
-
 
 		img {
 			width: 100%;
