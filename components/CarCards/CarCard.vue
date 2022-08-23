@@ -2,23 +2,26 @@
 .car-card(
 	:class="!active && 'car-card_not-active'"
 )
-	.car-card__block
-		.car-card__header(
-			v-if="header"
-			:class="!active && 'car-card__header_not-active'"
-		)
+	.car-card__block(
+		:class="!active && 'car-card__header_not-active'"
+	)
+		.car-card__header
 			.car-card__icon(
+				v-if="header"
 				v-html="require(`~/assets/svg/car-card/${header.icon}.svg?raw`)"
 			)
 
-			.car-card__text {{ header.text }}
+			.car-card__text(
+				:class="!header && 'car-card__text_hidden'"
+			) {{ header ? header.text : 'None' }}
 
 	.car-card__img
 		img(
-			:src="require('~/assets/img/car-card/car_card.png')"
+			:src="require(`~/assets/img/car-card/${empty ? 'empty_card' : 'car_card'}.png`)"
 		)
 	MainButton(
 		v-if="active"
+		:buttonIcon="button.buttonIcon"
 		:buttonText="button.buttonText"
 		:theme="button.buttonTheme"
 	)
@@ -29,7 +32,7 @@
 import MainButton from '~/components/button/MainButton';
 
 export default {
-	props: ['header', 'active', 'button'],
+	props: ['header', 'active', 'button', 'empty'],
 
 	data() {
 		return {};
@@ -53,7 +56,6 @@ export default {
 	&_not-active {
 		background-color: transparent;
 		opacity: 0.3;
-		// padding: 0;
 	}
 
 	&__header {
@@ -88,6 +90,10 @@ export default {
 		line-height: d(18);
 
 		color: $white;
+
+		&_hidden {
+			opacity: 0;
+		}
 	}
 
 	&__img {

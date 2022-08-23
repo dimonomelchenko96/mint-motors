@@ -1,7 +1,9 @@
 <template lang="pug">
 .car-card-garage
 	CarCard(
-
+		:active="active"
+		:button="buttonRace"
+		:empty="empty"
 	)
 </template>
 
@@ -9,9 +11,11 @@
 import CarCard from '~/components/carCards/CarCard';
 
 export default {
+	props: ['active', 'empty'],
+
 	data() {
 		return {
-			active: true,
+			// active: true,
 
 			crashed: {
 				name: 'Car crashed',

@@ -8,16 +8,21 @@
             :data="data"
 		)
 	.garage__card
-		CarCardMarket(
+		CarCardGarage(
 			:active="true"
 		)
-		CarCardMarket(
+		CarCardGarage(
 			:active="false"
+		)
+
+		CarCardGarage(
+			:active="false"
+			:empty="true"
 		)
 </template>
 
 <script>
-import CarCardMarket from '~/components/carCards/CarCardMarket';
+import CarCardGarage from '~/components/carCards/CarCardGarage';
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
 
 
@@ -25,7 +30,7 @@ export default {
 	name: 'Garage',
 
 	components: {
-		CarCardMarket,
+		CarCardGarage,
 		CarCharacteristicsBlock,
 	},
 
@@ -71,6 +76,8 @@ export default {
 
 	&__card {
 		display: flex;
+		position: absolute;
+		top: 50%;
 	}
 
 	&__car-card {
