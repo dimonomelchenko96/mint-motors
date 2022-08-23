@@ -21,9 +21,14 @@ export default {
 			balanceWiev: null,
 		};
 	},
+	methods: {
+		transformBalance(number) {
+			this.balanceWiev = new Intl.NumberFormat('ru-RU').format(number);
+		},
+	},
 
 	mounted() {
-		this.balanceWiev = this.balance.toFixed(2);
+		this.transformBalance(this.balance.toFixed(2));
 	},
 };
 </script>

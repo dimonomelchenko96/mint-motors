@@ -65,8 +65,6 @@ export default {
 .track-day-card {
 	position: relative;
 	border-radius: d(14);
-	background: lightseagreen;
-
 	display: flex;
 	flex-direction: column;
 	justify-content: flex-end;

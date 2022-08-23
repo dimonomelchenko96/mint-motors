@@ -1,22 +1,23 @@
 <template lang="pug">
 .racing
-	TrackDayCard.racing__card(
-		v-for="track in tracks"
-		:key= "track.trackId"
-		:trackId = "track.trackId"
-		:allPlayers = "track.allPlayers"
-		:currentPlayers = "track.currentPlayers"
-		:titlePlayers = "track.titlePlayers"	
-		:title = "track.title"
-		:reward = "track.reward"
-		:reward2nd = "track.reward2nd"
-		:price = "track.price"
-	)
+	h2 Select track
+	.racing__cards
+		TrackDayCard.racing__card(
+			v-for="track in tracks"
+			:key= "track.trackId"
+			:trackId = "track.trackId"
+			:allPlayers = "track.allPlayers"
+			:currentPlayers = "track.currentPlayers"
+			:titlePlayers = "track.titlePlayers"	
+			:title = "track.title"
+			:reward = "track.reward"
+			:reward2nd = "track.reward2nd"
+			:price = "track.price"
+		)
 </template>
 
 <script>
-import TrackDayCard from '~/components/ui/RacingTrack/TrackDayCard.vue';
-
+import TrackDayCard from '~/components/ui/RacingTrack/TrackDayCard';
 export default {
 	name: 'Racing',
 
@@ -67,12 +68,29 @@ export default {
 
 <style lang="scss" scoped>
 .racing {
+	height: 90vh;
 	display: flex;
+	flex-direction: column;
 	justify-content: center;
-	align-items: center;
-	height: 100vh;
-	gap: d(20);
 
+	h2 {
+		font-family: 'Zen Dots';
+		font-style: normal;
+		font-weight: 400;
+		font-size: d(32);
+		line-height: d(38);
+		letter-spacing: 0.01em;
+		color: #ffffff;
+		margin-bottom: d(55);
+		margin-left: d(50);
+	}
+
+	&__cards {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		gap: d(20);
+	}
 	&__card {
 		width: d(612);
 		height: d(414);
