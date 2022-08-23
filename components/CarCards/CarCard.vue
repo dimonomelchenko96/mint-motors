@@ -32,8 +32,7 @@ export default {
 	props: ['header', 'active', 'button'],
 
 	data() {
-		return {
-		};
+		return {};
 	},
 
 	methods: {},
@@ -53,6 +52,7 @@ export default {
 
 	&_not-active {
 		background-color: transparent;
+		opacity: 0.3;
 		// padding: 0;
 	}
 
@@ -71,6 +71,7 @@ export default {
 	&__icon {
 		width: d(18);
 		height: d(18);
+		display: flex;
 
 		::v-deep {
 			svg {
