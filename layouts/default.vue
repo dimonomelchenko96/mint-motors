@@ -1,6 +1,5 @@
 <template lang="pug">
 .layout
-
     .content
         Device
             template(#mob)
@@ -38,7 +37,6 @@ export default {
 	position: relative;
 	width: 100vw;
 	height: 100vh;
-
 	margin: 0 auto;
 
 	&__header {
