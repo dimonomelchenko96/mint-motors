@@ -7,11 +7,11 @@ VueSlickCarousel(v-bind="settings" @afterChange='change')
 					:active="activeSlide + 1 === i"
 				)
 
-    template(#prevArrow="")
+    template(#prevArrow)
         button(class="carousel__arrow")
           img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-left")
         
-    template(#nextArrow="")
+    template(#nextArrow)
         button(class="carousel__arrow carousel__arrow-right")
           img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
 </template>
