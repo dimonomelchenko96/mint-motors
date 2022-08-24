@@ -52,7 +52,7 @@ export default {
 .car-card {
 	background-color: #363431;
 	padding: d(10);
-
+	width: d(184);
 	border-radius: d(10);
 
 	&_not-active {

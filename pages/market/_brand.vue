@@ -8,14 +8,21 @@
             :data="data"
 		)
 
-	.market__carousel
-		Carousel
+	.market__button
+		Button(
+			buttonIcon="testdrive"
+			buttonText="Test Drive"
+			theme="gray"
+		)
+
+	Carousel.market__carousel
 	
 </template>
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
 import Carousel from '~/components/carousels/Carousel';
+import Button from '~/components/button/MainButton';
 
 export default {
 	name: 'Market-brand',
@@ -27,6 +34,13 @@ export default {
 	components: {
 		CarCharacteristicsBlock,
 		Carousel,
+		Button,
+	},
+
+	methods: {
+		log(e) {
+			console.log(e.target);
+		},
 	},
 
 	data() {
@@ -81,6 +95,14 @@ export default {
 		position: absolute;
 		bottom: d(40);
 		width: 100%;
+	}
+
+	&__button {
+		position: absolute;
+		bottom: d(300);
+		left: d(38);
+		width: d(162);
+		z-index: 10;
 	}
 
 	&__img {
