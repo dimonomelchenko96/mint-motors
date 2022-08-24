@@ -14,8 +14,6 @@ VueSlickCarousel(v-bind="settings" @afterChange='change')
     template(#nextArrow="")
         button(class="carousel__arrow carousel__arrow-right")
           img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
-    
-                                    
 </template>
 
 <script>

@@ -1,9 +1,8 @@
 <template lang="pug">
-.car-card-market
+.car-card-race-end
 	CarCard(
-		:header="header"
+		:header="status === 'win' && winner || status === 'lost' && loser || status === 'passive-lost' && loser"
 		:status="status"
-		:button="button"
 	)
 </template>
 
@@ -15,13 +14,14 @@ export default {
 
 	data() {
 		return {
-			header: {
-				icon: 'buy',
-				text: '20 000 MTR',
+			winner: {
+				icon: 'player',
+				text: 'WIN! Player 3',
 			},
-			button: {
-				buttonText: 'Buy NFT',
-				buttonTheme: 'blue',
+
+			loser: {
+				icon: 'player',
+				text: 'Lost! Player 2',
 			},
 		};
 	},
@@ -34,8 +34,9 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.car-card-market {
+.car-card-race-end {
 	display: flex;
-	width: 100%;
+	// width: 100%;
+	height: 100%;
 }
 </style>

@@ -1,11 +1,9 @@
 <template lang="pug">
 .car-card-garage
 	CarCard(
-		:active="active"
-		:button="broken ? buttonBroken : buttonRace"
-		:empty="empty"
-		:header="crashed && isCrashed || broken && isBroken"
-		:broken="broken"
+		:status="status"
+		:button="status === 'broken' ? buttonBroken : buttonRace"
+		:header="status === 'crashed' && isCrashed || status === 'broken' && isBroken || status === 'passive-broken' && isBroken"
 	)
 </template>
 
@@ -13,7 +11,7 @@
 import CarCard from '~/components/carCards/CarCard';
 
 export default {
-	props: ['active', 'empty', 'crashed', 'broken'],
+	props: ['status'],
 
 	data() {
 		return {
@@ -56,4 +54,8 @@ export default {
 };
 </script>
 
-<style lang="scss" scoped></style>
+<style lang="scss" scoped>
+.car-card-garage {
+	width: 100%;
+}
+</style>
