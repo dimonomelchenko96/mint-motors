@@ -1,10 +1,19 @@
 <template lang="pug">
-.track-players
-	include ../../../assets/svg/racing/human.svg
+.track-players(
+	:class="[currentPlayers === allPlayers && 'track-players_green']"
+)
+	.track-players__icon.track-players__human(
+		v-if="currentPlayers !== allPlayers"
+	)
+		include ../../../assets/svg/racing/human.svg
+	.track-players__icon.track-players__check(
+		v-else
+	)
+		include ../../../assets/svg/racing/check.svg
 	span {{currentPlayers}}
 	span /
 	span.track-players__all-players {{allPlayers}}
-	span {{titlePlayers}}
+	span {{ $route.fullPath === '/racing' && 'players' || currentPlayers === allPlayers ? 'players' : 'await players'}}
 </template>
 
 <script>
@@ -30,10 +39,33 @@ export default {
 	font-size: d(12);
 	color: #ffffff;
 
-	svg {
-		width: d(11);
-		height: d(12);
-		margin-right: d(13);
+	&_green {
+		background: #6dfcc8;
+		color: #000;
+	}
+	&__icon {
+		display: flex;
+		align-items: center;
+	}
+
+	&__human {
+		svg {
+			width: d(14);
+			height: d(13);
+			margin-right: d(13);
+		}
+	}
+
+	&__check {
+		svg {
+			width: d(16);
+			height: d(12);
+			margin-right: d(4);
+
+			path {
+				fill: #000;
+			}
+		}
 	}
 
 	&__all-players {

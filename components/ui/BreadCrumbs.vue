@@ -53,8 +53,8 @@ export default {
 	&__slash {
 		color: rgba(255, 255, 255, 0.3);
 		margin-right: d(16);
-		line-height: 42px;
 	}
+
 	&__image {
 		display: flex;
 		justify-content: center;
@@ -65,7 +65,8 @@ export default {
 		margin-right: d(16);
 
 		&.first-bread-crumbs__image {
-			margin-right: d(3);
+			margin-right: d(2);
+
 			::v-deep {
 				svg {
 					width: d(14);
@@ -107,7 +108,8 @@ export default {
 		display: flex;
 		justify-content: center;
 		align-items: center;
-		margin-right: d(28);
+		margin-left: d(6);
+		margin-right: d(16);
 
 		p {
 			font-family: 'Zen Dots';
