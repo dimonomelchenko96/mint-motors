@@ -5,9 +5,9 @@
 	)
 	.garage__car-characteristics
 		CarCharacteristicsBlock(
-            :data="data"
+            :data="data[activeCard]"
 		)
-	Carousel
+	Carousel(:data="data" @setActiveCard='setActiveCard').garage__carousel
 
 	//- .garage__card
 	//- 	CarCardGarage.garage__card_1(
@@ -90,32 +90,257 @@ export default {
 		this.model = this.$route.params.brand;
 	},
 
+	methods: {
+		setActiveCard(value) {
+			this.activeCard = value;
+		},
+	},
+
 	data() {
 		return {
-			model: '',
-			data: {
-				startProd: 1973,
-				endProd: 2002,
-				brand: 'BMW',
-				state: 'crashed',
-				params: [
-					{
-						characteristic: 'Power',
-						value: '320 hp',
-						percent: '-10%',
-					},
-					{
-						characteristic: 'Max speed:',
-						value: '210 km/h',
-						percent: '-20%',
-					},
-					{
-						characteristic: 'Up to 100km/h:',
-						value: '6.2 sec',
-						percent: '-10%',
-					},
-				],
-			},
+			activeCard: 0,
+			data: [
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'crashed',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'normal',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'broken',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'broken',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'crashed',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'broken',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'normal',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'normal',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'normal',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'broken',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+			],
 		};
 	},
 };
@@ -125,6 +350,12 @@ export default {
 .garage {
 	height: 100vh;
 	position: relative;
+
+	&__carousel {
+		position: absolute;
+		bottom: d(40);
+		width: 100%;
+	}
 
 	&__card {
 		display: flex;
