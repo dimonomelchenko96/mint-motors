@@ -344,28 +344,6 @@ export default {
 	}
 }
 
-.lost {
-	background-color: $pink;
-
-	&__header {
-		justify-content: start;
-	}
-
-	&__icon {
-		::v-deep {
-			svg{
-				path {
-					fill: #000;
-				}
-			}
-		}
-	}
-
-	&__img {
-		margin-bottom: 0;
-	}
-}
-
 .passive-lost {
 	background-color: $pink;
 	position: relative;

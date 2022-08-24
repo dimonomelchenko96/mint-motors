@@ -33,12 +33,6 @@ export default {
 				buttonIcon: 'race',
 			},
 
-			// buttonCrashed: {
-			// 	buttonText: 'Start Race',
-			// 	buttonTheme: 'white',
-			// 	buttonIcon: 'race',
-			// },
-
 			buttonBroken: {
 				buttonText: 'Utilize',
 				buttonTheme: 'black',
