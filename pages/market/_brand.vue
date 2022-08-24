@@ -21,7 +21,7 @@
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import Carousel from '~/components/carousels/Carousel';
+import Carousel from '~/components/carousels/MarketCarousel';
 import Button from '~/components/button/MainButton';
 
 export default {
