@@ -5,13 +5,9 @@ VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
 			CarCardMarket(
 					v-if="i <= slideOffset"
 					:key="i"
-					:active="activeSlide === i"
+					:status="activeSlide === i ? 'active' : 'passive'"
 				)
-			CarCardGarage(
-				v-else
-				:active="false"
-				:empty="true"
-			)
+			EmptyCard(v-else).carousel__empty
 			
 	template(#prevArrow)
 		button(class="carousel__arrow" :disabled="activeSlide === 0") 
@@ -27,12 +23,14 @@ import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import CarCardMarket from '~/components/carCards/CarCardMarket';
 import CarCardGarage from '~/components/carCards/CarCardGarage';
+import EmptyCard from '~/components/ui/EmptyCard';
 
 export default {
 	components: {
 		VueSlickCarousel,
 		CarCardMarket,
 		CarCardGarage,
+		EmptyCard,
 	},
 	watch: {
 		// activeSlide(newValue, oldValue) {
@@ -43,7 +41,7 @@ export default {
 	},
 	data() {
 		return {
-			slideOffset: 4,
+			slideOffset: 1,
 			activeSlide: 0,
 			settings: {
 				centerMode: true,
@@ -82,6 +80,13 @@ export default {
 .carousel {
 	&__margin {
 		margin: 0 d(5);
+		display: flex;
+		justify-content: center;
+	}
+
+	&__empty {
+		margin-top: d(38);
+		// width: 100%;
 	}
 
 	&__arrow {
