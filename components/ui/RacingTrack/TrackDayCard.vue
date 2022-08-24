@@ -6,7 +6,6 @@
 			TrackDayPlayers.track-day-card__players(
 				:allPlayers="allPlayers"
 				:currentPlayers="currentPlayers"
-				:titlePlayers="titlePlayers"
 			)
 			TrackDayTitle.track-day-card__title(
 				:title="title"
@@ -51,7 +50,6 @@ export default {
 	props: [
 		'allPlayers',
 		'currentPlayers',
-		'titlePlayers',
 		'title',
 		'reward',
 		'reward2nd',
