@@ -17,6 +17,7 @@ export default {
 
 <style lang="scss" scoped>
 .button {
+	cursor: pointer;
 	padding: d(15) 0;
 	width: 100%;
 	display: flex;
@@ -60,7 +61,7 @@ export default {
 		margin-right: d(10);
 		width: d(16);
 		height: d(16);
-		
+
 		::v-deep svg {
 			width: 100%;
 			height: 100%;

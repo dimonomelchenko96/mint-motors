@@ -15,8 +15,7 @@
 			theme="gray"
 		)
 
-	.market__carousel
-		Carousel
+	Carousel.market__carousel
 	
 </template>
 
@@ -36,6 +35,12 @@ export default {
 		CarCharacteristicsBlock,
 		Carousel,
 		Button,
+	},
+
+	methods: {
+		log(e) {
+			console.log(e.target);
+		},
 	},
 
 	data() {
@@ -93,7 +98,6 @@ export default {
 	}
 
 	&__button {
-		cursor: pointer;
 		position: absolute;
 		bottom: d(300);
 		left: d(38);

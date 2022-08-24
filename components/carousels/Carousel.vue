@@ -1,19 +1,26 @@
 <template lang="pug">
-VueSlickCarousel(v-bind="settings" @beforeChange='change')
-    div.carousel__block(v-for="(elem, i) in 20")
-        div.carousel__margin
-            CarCardMarket(
+VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
+	div.carousel__block(v-for="(elem, i) in 15")
+		div.carousel__margin
+			CarCardMarket(
+					v-if="i <= slideOffset"
 					:key="i"
 					:active="activeSlide === i"
 				)
+			CarCardGarage(
+				v-else
+				:active="false"
+				:empty="true"
+			)
 
-    template(#prevArrow="")
-        button(class="carousel__arrow" :disabled="activeSlide  === 0")
-          img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-left")
-        
-    template(#nextArrow="")
-        button(class="carousel__arrow carousel__arrow-right" :disabled="activeSlide  === 3")
-          img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
+			
+	template(#prevArrow)
+		button(class="carousel__arrow" :disabled="activeSlide === 0") 
+			img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-left")
+
+	template(#nextArrow)
+		button(class="carousel__arrow carousel__arrow-right" :disabled="activeSlide === slideOffset")
+			img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
     
                                     
 </template>
@@ -22,14 +29,24 @@ VueSlickCarousel(v-bind="settings" @beforeChange='change')
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import CarCardMarket from '~/components/carCards/CarCardMarket';
+import CarCardGarage from '~/components/carCards/CarCardGarage';
 
 export default {
 	components: {
 		VueSlickCarousel,
 		CarCardMarket,
+		CarCardGarage,
+	},
+	watch: {
+		// activeSlide(newValue, oldValue) {
+		// 	if (newValue > this.slideOffset) {
+		// 		this.$refs.carousel.prev();
+		// 	}
+		// },
 	},
 	data() {
 		return {
+			slideOffset: 4,
 			activeSlide: 0,
 			settings: {
 				centerMode: true,
@@ -46,8 +63,21 @@ export default {
 		change(prev, next) {
 			this.activeSlide = next;
 		},
+		disableEmptySlide() {
+			let slides = document.querySelectorAll('.slick-slide');
+			slides.forEach(item => {
+				if (
+					item.dataset.index > this.slideOffset ||
+					item.dataset.index < 0
+				) {
+					item.style.pointerEvents = 'none';
+				}
+			});
+		},
 	},
-	mounted() {},
+	mounted() {
+		this.disableEmptySlide();
+	},
 };
 </script>
 
@@ -81,6 +111,7 @@ export default {
 	&-prev,
 	&-next {
 		z-index: 100;
+		transform: translate(0, -100%);
 		&::before {
 			display: none;
 		}
