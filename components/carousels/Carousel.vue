@@ -1,18 +1,18 @@
 <template lang="pug">
-VueSlickCarousel(v-bind="settings" @afterChange='change')
-    div.carousel__block(v-for="i in 20")
+VueSlickCarousel(v-bind="settings" @beforeChange='change')
+    div.carousel__block(v-for="(elem, i) in 20")
         div.carousel__margin
             CarCardMarket(
 					:key="i"
-					:active="activeSlide + 1 === i"
+					:active="activeSlide === i"
 				)
 
     template(#prevArrow="")
-        button(class="carousel__arrow")
+        button(class="carousel__arrow" :disabled="activeSlide  === 0")
           img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-left")
         
     template(#nextArrow="")
-        button(class="carousel__arrow carousel__arrow-right")
+        button(class="carousel__arrow carousel__arrow-right" :disabled="activeSlide  === 3")
           img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
     
                                     
@@ -44,7 +44,7 @@ export default {
 	},
 	methods: {
 		change(prev, next) {
-			this.activeSlide = prev;
+			this.activeSlide = next;
 		},
 	},
 	mounted() {},
