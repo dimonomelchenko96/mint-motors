@@ -52,10 +52,8 @@ export default {
 		getRoouteParams(path) {
 			const arrPath = path.split('/');
 
-			if (arrPath.length === 2) {
-				if (arrPath[1] === '') this.initialStatus = true;
-				else if (arrPath[1] == 'world') this.initialStatus = true;
-				else this.initialStatus = false;
+			if (arrPath[1] === '' || arrPath[1] === 'world') {
+				return (this.initialStatus = true);
 			} else this.initialStatus = false;
 
 			this.secondParam = '';

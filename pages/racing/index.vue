@@ -7,8 +7,7 @@
 			:key= "track.trackId"
 			:trackId = "track.trackId"
 			:allPlayers = "track.allPlayers"
-			:currentPlayers = "track.currentPlayers"
-			:titlePlayers = "track.titlePlayers"	
+			:currentPlayers = "track.currentPlayers"	
 			:title = "track.title"
 			:reward = "track.reward"
 			:reward2nd = "track.reward2nd"
@@ -48,13 +47,12 @@ export default {
 					trackId: 45645645465,
 					// TrackDayPlayers
 					allPlayers: 4,
-					currentPlayers: 0,
-					titlePlayers: 'players',
+					currentPlayers: 1,
 					// TrackDayTitle
 					title: 'track day1',
 
 					// TrackDay1stReward
-					reward: 6000,
+					reward: 6577,
 					// TrackDay2ndReward
 					reward2nd: 'none',
 					// TrackDayPrice
@@ -64,65 +62,61 @@ export default {
 					trackId: 9878978978,
 					// TrackDayPlayers
 					allPlayers: 4,
-					currentPlayers: 0,
-					titlePlayers: 'players',
+					currentPlayers: 2,
 					// TrackDayTitle
 					title: 'track day2',
 
 					// TrackDay1stReward
-					reward: 6000,
+					reward: 5252,
 					// TrackDay2ndReward
 					reward2nd: 'none',
 					// TrackDayPrice
-					price: 4000,
+					price: 2000,
 				},
 				{
 					trackId: 9878978978,
 					// TrackDayPlayers
 					allPlayers: 4,
-					currentPlayers: 0,
-					titlePlayers: 'players',
+					currentPlayers: 3,
 					// TrackDayTitle
 					title: 'track day3',
 
 					// TrackDay1stReward
-					reward: 6000,
+					reward: 4000,
 					// TrackDay2ndReward
 					reward2nd: 'none',
 					// TrackDayPrice
-					price: 4000,
+					price: 1000,
 				},
 				{
 					trackId: 9878978978,
 					// TrackDayPlayers
 					allPlayers: 4,
-					currentPlayers: 0,
-					titlePlayers: 'players',
+					currentPlayers: 4,
 					// TrackDayTitle
 					title: 'track day4',
 
 					// TrackDay1stReward
-					reward: 6000,
+					reward: 4500,
 					// TrackDay2ndReward
 					reward2nd: 'none',
 					// TrackDayPrice
-					price: 4000,
+					price: 2200,
 				},
 				{
 					trackId: 9878978978,
 					// TrackDayPlayers
 					allPlayers: 4,
 					currentPlayers: 0,
-					titlePlayers: 'players',
 					// TrackDayTitle
 					title: 'track day5',
 
 					// TrackDay1stReward
-					reward: 6000,
+					reward: 3300,
 					// TrackDay2ndReward
 					reward2nd: 'none',
 					// TrackDayPrice
-					price: 4000,
+					price: 1650,
 				},
 			],
 		};

@@ -7,7 +7,6 @@
 				TrackDayPlayers.track-day__players(
 					:allPlayers="allPlayers"
 					:currentPlayers="currentPlayers"
-					:titlePlayers="titlePlayers"
 				)
 				TrackDayTitle.track-day__title(
 					:title="title"
@@ -47,6 +46,7 @@
 	MainButton.track__button(
 		:buttonText="'start race'"
 		:buttonIcon="'race'"
+		@click.native="$store.commit('racing/isPaidToggle')"
 	)
 </template>
 
@@ -69,11 +69,9 @@ export default {
 			trackId: '',
 			// TrackDayPlayers
 			allPlayers: 4,
-			currentPlayers: 0,
-			titlePlayers: 'await players',
+			currentPlayers: 4,
 			// TrackDayTitle
 			title: 'track day',
-
 			// TrackDay1stReward
 			reward: 6000,
 			// TrackDay2ndReward
@@ -82,6 +80,7 @@ export default {
 			price: 4000,
 		};
 	},
+
 	mounted() {
 		this.trackId = this.$route.params.track;
 	},
@@ -133,7 +132,7 @@ export default {
 		}
 
 		&__players {
-			width: d(185);
+			width: fit-content;
 			margin-bottom: d(32);
 			line-height: d(24);
 		}
