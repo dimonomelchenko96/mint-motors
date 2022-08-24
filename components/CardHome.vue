@@ -10,7 +10,7 @@ nuxt-link.card-home(
 		.card-home__icon
 			img(
 				v-if="icon"
-				:src="require(`../assets/svg/home/${icon}.svg`)"
+				:src="require(`~/assets/svg/home/${icon}.svg`)"
 				:alt="icon"
 			)
 		.card-home__info
@@ -26,7 +26,7 @@ nuxt-link.card-home(
 				v-if="arrow"
 			)
 				img(
-					:src="require(`../assets/svg/home/${arrow}.svg`)"
+					:src="require(`~/assets/svg/home/${arrow}.svg`)"
 				)
 		.card-home__img(
 			:class="['card-home__img_position-' + param.imgPosition, name === 'Finance' && 'card-home__img_finance']"

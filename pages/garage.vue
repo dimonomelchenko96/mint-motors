@@ -8,36 +8,67 @@
             :data="data"
 		)
 	.garage__card
-		CarCardGarage(
-			:active="true"
+		CarCardGarage.garage__card_1(
+			:status="'normal'"
 		)
-		CarCardGarage(
-			:active="false"
-		)
-
-		CarCardGarage(
-			:active="false"
-			:empty="true"
+		CarCardGarage.garage__card_1(
+			:status="'crashed'"
 		)
 
-		CarCardGarage(
-			:active="true"
-			:crashed="true"
+		CarCardGarage.garage__card_1(
+			:status="'broken'"
 		)
 
-		CarCardGarage(
-			:active="true"
-			:broken="true"
+		CarCardGarage.garage__card_1(
+			:status="'passive-broken'"
 		)
 
-		CarCardGarage(
-			:active="false"
-			:broken="true"
+		CarCardGarage.garage__card_1(
+			:status="'empty'"
+		)
+
+		CarCardMarket.garage__card_1(
+			:status="'active'"
+		)
+
+		CarCardMarket.garage__card_1(
+			:status="'passive'"
+		)
+
+		CarCardTrack.garage__card_1(
+			:status="'track-empty'"
+		)
+
+		CarCardTrack.garage__card_1(
+			:status="'track-connect'"
+		)
+
+		CarCardTrack.garage__card_1(
+			:status="'player'"
+		)
+
+		CarCardTrack.garage__card_1(
+			:status="'my-car'"
+		)
+
+		CarCardRaceEnd.garage__card_1(
+			:status="'lost'"
+		)
+
+		CarCardRaceEnd.garage__card_1(
+			:status="'passive-lost'"
+		)
+
+		CarCardRaceEnd.garage__card_1(
+			:status="'win'"
 		)
 </template>
 
 <script>
 import CarCardGarage from '~/components/carCards/CarCardGarage';
+import CarCardMarket from '~/components/carCards/CarCardMarket';
+import CarCardTrack from '~/components/carCards/CarCardTrack';
+import CarCardRaceEnd from '~/components/carCards/CarCardRaceEnd';
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
 
 export default {
@@ -46,6 +77,9 @@ export default {
 	components: {
 		CarCardGarage,
 		CarCharacteristicsBlock,
+		CarCardMarket,
+		CarCardTrack,
+		CarCardRaceEnd,
 	},
 
 	mounted() {
@@ -90,8 +124,13 @@ export default {
 
 	&__card {
 		display: flex;
+		flex-wrap: wrap;
 		position: absolute;
-		top: 50%;
+		top: 20%;
+
+		&_1 {
+			width: d(200);
+		}
 	}
 
 	&__car-card {

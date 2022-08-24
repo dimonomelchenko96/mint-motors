@@ -12,7 +12,6 @@ VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
 				:active="false"
 				:empty="true"
 			)
-
 			
 	template(#prevArrow)
 		button(class="carousel__arrow" :disabled="activeSlide === 0") 
@@ -21,8 +20,6 @@ VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
 	template(#nextArrow)
 		button(class="carousel__arrow carousel__arrow-right" :disabled="activeSlide === slideOffset")
 			img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
-    
-                                    
 </template>
 
 <script>
