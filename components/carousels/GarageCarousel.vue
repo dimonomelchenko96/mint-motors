@@ -3,11 +3,10 @@ VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
 	div.carousel__block(v-for="(elem, i) in data")
 		div.carousel__margin
 			CarCardGarage(
-					v-if="i <= data.length"
 					:key="i"
 					:status="activeSlide === i ? data[activeSlide].status : passiveStatus[data[i].status]"
 				)
-			EmptyCard(v-else).carousel__empty
+			//- EmptyCard(v-else).carousel__empty
 			
 	template(#prevArrow)
 		button(class="carousel__arrow" :disabled="data.length < 8 ? activeSlide === 0 : false") 
