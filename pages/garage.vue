@@ -9,61 +9,7 @@
 		)
 	Carousel(:data="data" @setActiveCard='setActiveCard').garage__carousel
 
-	//- .garage__card
-	//- 	CarCardGarage.garage__card_1(
-	//- 		:status="'normal'"
-	//- 	)
-	//- 	CarCardGarage.garage__card_1(
-	//- 		:status="'crashed'"
-	//- 	)
 
-	//- 	CarCardGarage.garage__card_1(
-	//- 		:status="'broken'"
-	//- 	)
-
-	//- 	CarCardGarage.garage__card_1(
-	//- 		:status="'passive-broken'"
-	//- 	)
-
-	//- 	CarCardGarage.garage__card_1(
-	//- 		:status="'empty'"
-	//- 	)
-
-	//- 	CarCardMarket.garage__card_1(
-	//- 		:status="'active'"
-	//- 	)
-
-	//- 	CarCardMarket.garage__card_1(
-	//- 		:status="'passive'"
-	//- 	)
-
-	//- 	CarCardTrack.garage__card_1(
-	//- 		:status="'track-empty'"
-	//- 	)
-
-	//- 	CarCardTrack.garage__card_1(
-	//- 		:status="'track-connect'"
-	//- 	)
-
-	//- 	CarCardTrack.garage__card_1(
-	//- 		:status="'player'"
-	//- 	)
-
-	//- 	CarCardTrack.garage__card_1(
-	//- 		:status="'my-car'"
-	//- 	)
-
-	//- 	CarCardRaceEnd.garage__card_1(
-	//- 		:status="'lost'"
-	//- 	)
-
-	//- 	CarCardRaceEnd.garage__card_1(
-	//- 		:status="'passive-lost'"
-	//- 	)
-
-	//- 	CarCardRaceEnd.garage__card_1(
-	//- 		:status="'win'"
-	//- 	)
 </template>
 
 <script>
