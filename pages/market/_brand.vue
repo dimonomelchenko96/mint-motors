@@ -5,7 +5,7 @@
 	)
 	.market__car-characteristics
 		CarCharacteristicsBlock(
-            :data="data"
+            :data="data[activeCard]"
 		)
 
 	.market__button
@@ -15,13 +15,16 @@
 			theme="gray"
 		)
 
-	Carousel.market__carousel
+	Carousel.market__carousel(
+		:data="data" 
+		@setActiveCard='setActiveCard'
+		)
 	
 </template>
 
 <script>
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import Carousel from '~/components/carousels/MarketCarousel';
+import Carousel from '~/components/carousels/Carousel';
 import Button from '~/components/button/MainButton';
 
 export default {
@@ -38,37 +41,185 @@ export default {
 	},
 
 	methods: {
-		log(e) {
-			console.log(e.target);
+		setActiveCard(value) {
+			this.activeCard = value;
 		},
 	},
 
 	data() {
 		return {
 			model: '',
-			data: {
-				startProd: 1973,
-				endProd: 2002,
-				brand: 'BMW',
-				state: 'new',
-				params: [
-					{
-						characteristic: 'Power',
-						value: '320 hp',
-						percent: '-10%',
-					},
-					{
-						characteristic: 'Max speed:',
-						value: '210 km/h',
-						percent: '-20%',
-					},
-					{
-						characteristic: 'Up to 100km/h:',
-						value: '6.2 sec',
-						percent: '-10%',
-					},
-				],
-			},
+			activeCard: 0,
+			data: [
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'active',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'active',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'active',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'active',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'active',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'active',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'active',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+			],
 		};
 	},
 };

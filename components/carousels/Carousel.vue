@@ -9,12 +9,12 @@ VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
 
 	div.carousel__block(v-for="(elem, i) in 15" v-if="data.length < 8")
 		div.carousel__margin
-			CarCardGarage(
+			CarCardSlider(
 					v-if="i < data.length"
 					:key="i"
 					:status="activeSlide === i ? data[activeSlide].status : passiveStatus[data[i].status]"
 				)
-			CarCardGarage( 	
+			CarCardSlider( 	
 					v-else
 					:status="'empty'"
 				)
@@ -33,17 +33,15 @@ VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
 import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import CarCardMarket from '~/components/carCards/CarCardMarket';
-import CarCardGarage from '~/components/carCards/CarCardGarage';
-import EmptyCard from '~/components/ui/EmptyCard';
 import CarCardSlider from '~/components/carCards/CarCardSlider';
+import EmptyCard from '~/components/ui/EmptyCard';
 
 export default {
 	components: {
 		VueSlickCarousel,
 		CarCardMarket,
-		CarCardGarage,
-		EmptyCard,
 		CarCardSlider,
+		EmptyCard,
 	},
 	props: ['data'],
 	data() {
@@ -54,6 +52,7 @@ export default {
 				normal: 'passive',
 				crashed: 'passive',
 				broken: 'passive-broken',
+				active: 'passive',
 			},
 
 			settings: {
@@ -88,12 +87,7 @@ export default {
 	},
 	mounted() {
 		this.disableEmptySlide();
-		// this.transformData = [...this.data];
-		// let emptyLength = 15 - this.data.length;
-
-		// for (let i = 0; i < emptyLength; i++) {
-		// 	this.transformData.push({ status: 'empty' });
-		// }
+		this.transformData = this.data;
 	},
 };
 </script>

@@ -7,7 +7,10 @@
 		CarCharacteristicsBlock(
             :data="data[activeCard]"
 		)
-	Carousel(:data="data" @setActiveCard='setActiveCard').garage__carousel
+	Carousel.garage__carousel(
+		:data="data"
+		@setActiveCard='setActiveCard'
+		)
 
 
 </template>
@@ -18,7 +21,7 @@ import CarCardMarket from '~/components/carCards/CarCardMarket';
 import CarCardTrack from '~/components/carCards/CarCardTrack';
 import CarCardRaceEnd from '~/components/carCards/CarCardRaceEnd';
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
-import Carousel from '~/components/carousels/GarageCarousel';
+import Carousel from '~/components/carousels/Carousel';
 
 export default {
 	name: 'Garage',
@@ -172,6 +175,78 @@ export default {
 					brand: 'BMW',
 
 					status: 'broken',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'normal',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'normal',
+					params: [
+						{
+							characteristic: 'Power',
+							value: '320 hp',
+							percent: '-10%',
+						},
+						{
+							characteristic: 'Max speed:',
+							value: '210 km/h',
+							percent: '-20%',
+						},
+						{
+							characteristic: 'Up to 100km/h:',
+							value: '6.2 sec',
+							percent: '-10%',
+						},
+					],
+				},
+				{
+					startProd: 1973,
+					endProd: 2002,
+					brand: 'BMW',
+
+					status: 'normal',
 					params: [
 						{
 							characteristic: 'Power',
