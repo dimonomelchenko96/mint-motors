@@ -1,10 +1,10 @@
 <template lang="pug">
 VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
-	div.carousel__block(v-for="(elem, i) in transformData")
+	div.carousel__block(v-for="(elem, i) in data" v-if='data.length >= 8')
 		div.carousel__margin
 			CarCardGarage(
 					:key="i"
-					:status="activeSlide === i ? transformData[activeSlide].status : passiveStatus[transformData[i].status]"
+					:status="activeSlide === i ? data[activeSlide].status : passiveStatus[data[i].status]"
 				)
 
 	div.carousel__block(v-for="(elem, i) in 15" v-if="data.length < 8")
@@ -86,12 +86,12 @@ export default {
 	},
 	mounted() {
 		this.disableEmptySlide();
-		this.transformData = [...this.data];
-		let emptyLength = 15 - this.data.length;
+		// this.transformData = [...this.data];
+		// let emptyLength = 15 - this.data.length;
 
-		for (let i = 0; i < emptyLength; i++) {
-			this.transformData.push({ status: 'empty' });
-		}
+		// for (let i = 0; i < emptyLength; i++) {
+		// 	this.transformData.push({ status: 'empty' });
+		// }
 	},
 };
 </script>
