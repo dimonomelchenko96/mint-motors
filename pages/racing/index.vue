@@ -1,9 +1,10 @@
 <template lang="pug">
 .racing
 	h2 Select track
-	VueSlickCarousel(v-bind="settings")
+	VueSlickCarousel(v-bind="settings" @beforeChange='change')
 		TrackDayCard.racing__card(
-			v-for="track in tracks"
+			v-for="(track, i) in tracks"
+			:class="i === activeSlide ? 'racing__card-active' : null"
 			:key= "track.trackId"
 			:trackId = "track.trackId"
 			:allPlayers = "track.allPlayers"
@@ -33,6 +34,7 @@ export default {
 
 	data() {
 		return {
+			activeSlide: 0,
 			settings: {
 				centerMode: true,
 				centerPadding: '27.5%',
@@ -41,6 +43,7 @@ export default {
 				speed: 500,
 				arrow: true,
 				draggable: true,
+				// infinite: false,
 			},
 			tracks: [
 				{
@@ -126,6 +129,13 @@ export default {
 		TrackDayCard,
 		VueSlickCarousel,
 	},
+
+	methods: {
+		change(prev, next) {
+			console.log(next);
+			this.activeSlide = next;
+		},
+	},
 };
 </script>
 
@@ -156,6 +166,10 @@ export default {
 	}
 	&__card {
 		height: d(414);
+		opacity: 0.2;
+		&-active {
+			opacity: 1;
+		}
 	}
 }
 
@@ -197,12 +211,6 @@ export default {
 	&-track {
 		display: flex;
 		column-gap: 20px;
-	}
-	&-slide {
-		opacity: 0.2;
-	}
-	&-current {
-		opacity: 1;
 	}
 	&-prev {
 		left: d(54);
