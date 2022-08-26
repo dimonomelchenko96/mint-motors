@@ -88,6 +88,18 @@ export default {
 	mounted() {
 		this.disableEmptySlide();
 		this.transformData = this.data;
+
+		// if (this.data.length < 8) {
+		// 	this.transformData = [...this.data];
+		// 	let emptyLength = 15 - this.data.length;
+
+		// 	for (let i = 0; i < emptyLength; i++) {
+		// 		this.transformData.push({ status: 'empty' });
+		// 	}
+		// } else {
+		// 	this.transformData = [...this.data];
+		// }
+		// console.log(this.transformData);
 	},
 };
 </script>
