@@ -2,7 +2,7 @@
 VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
 	div.carousel__block(v-for="(elem, i) in data")
 		div.carousel__margin
-			CarCardGarage(
+			CarCardSlider(
 					:key="i"
 					:status="activeSlide === i ? data[activeSlide].status : passiveStatus[data[i].status]"
 				)
@@ -23,6 +23,7 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import CarCardMarket from '~/components/carCards/CarCardMarket';
 import CarCardGarage from '~/components/carCards/CarCardGarage';
 import EmptyCard from '~/components/ui/EmptyCard';
+import CarCardSlider from '~/components/carCards/CarCardSlider';
 
 console.log(EmptyCard);
 
@@ -32,6 +33,7 @@ export default {
 		CarCardMarket,
 		CarCardGarage,
 		EmptyCard,
+		CarCardSlider,
 	},
 	props: ['data'],
 	data() {

@@ -1,18 +1,17 @@
 <template lang="pug">
-.card-balance 
-	CardFinance(
-		:name="name"
-		:sum="sum"
-		:main="main"
-	)
+CardFinance.card-balance(
+	:name="name"
+	:sum="sum"
+	:main="main"
+)
 </template>
 
 <script>
-import CardFinance from './CardFinance';
+import CardFinance from '~/components/finance/CardFinance';
 
 export default {
-    data() {
-        return {
+	data() {
+		return {
 			name: 'Balance',
 			sum: '344.00',
 			main: {
@@ -23,19 +22,16 @@ export default {
 				button: {
 					name: 'harvest',
 					background: 'pink',
-				}
-			}
-        }
-    },
-    methods: {
+				},
+			},
+		};
+	},
+	methods: {},
 
-    },
-
-    components: {
-        CardFinance,
-    }
-}
+	components: {
+		CardFinance,
+	},
+};
 </script>
 
-<style lang="scss" scoped>
-</style>
+<style lang="scss" scoped></style>

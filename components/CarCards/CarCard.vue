@@ -34,6 +34,7 @@
 		:class="`${status}__` + 'component'"
 		v-if="status === 'win'"
 	)
+
 	MainButton(
 		v-if="button"
 		:class="`${status}__` + 'button'"

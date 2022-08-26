@@ -1,9 +1,8 @@
 <template lang="pug">
-.car-card-track
-	CarCard(
-		:header="status === 'track-empty' && awaitPlayer || status === 'track-connect' && awaitPlayer || status === 'player' && player ||status === 'my-car' && myCar"
-		:status="status"
-	)
+CarCard.car-card-track(
+	:header="status === 'track-empty' && awaitPlayer || status === 'track-connect' && awaitPlayer || status === 'player' && player ||status === 'my-car' && myCar"
+	:status="status"
+)
 </template>
 
 <script>

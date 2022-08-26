@@ -17,20 +17,24 @@
 			.header-block__icons
 				.header-block__icon
 					include ../../assets/svg/finance/busd_icon.svg
+
 				.header-block__icon.header-block__icon_pool
 					include ../../assets/svg/finance/mtr-logo.svg
+
 			.header-block__name {{ name }}
 
 		.header-block__amount(
 			v-if="name === 'Balance'"
 		)
 			.header-block__name.header-block__name_pink $
+
 			.header-block__name {{ sum }}
-			
+
 		.header-block__amount.header-block__amount_pool(
 			v-if="name === 'Staking Pool'"
 		)
 			.header-block__name.header-block__name_pool Apr
+
 			.header-block__name.header-block__name_turquoise {{ sum }}
 
 	.main-block.card-finance__main(
@@ -43,10 +47,13 @@
 				:class="'main-block__icon_' + main.icon"
 			)
 				include ../../assets/svg/finance/mtr-logo.svg
+
 			.main-block__name(
 				:class="'main-block__name_' + main.icon"
 			) {{ main.name}}
+
 		.main-block__sum {{ main.amount }}
+
 		MainButton(
 			:buttonText="main.button.name"
 			:theme="main.button.background"
@@ -54,6 +61,7 @@
 
 	.more.card-finance__more
 		.more__text More
+
 		.more__icon
 			include ../../assets/svg/finance/arrow_down.svg
 
@@ -78,7 +86,6 @@ export default {
 <style lang="scss" scoped>
 .card-finance {
 	padding: d(18);
-	// height: 300px;
 	width: 100%;
 	background-color: #201f23;
 
@@ -251,7 +258,7 @@ export default {
 		color: $pink;
 
 		&_black {
-			color: #1D232A;
+			color: #1d232a;
 		}
 	}
 

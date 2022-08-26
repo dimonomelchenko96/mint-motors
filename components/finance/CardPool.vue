@@ -1,14 +1,13 @@
 <template lang="pug">
-.card-pool
-	CardFinance(
-		:name="name"
-		:sum="sum"
-		:main="main"
-	)
+CardFinance.card-pool(
+	:name="name"
+	:sum="sum"
+	:main="main"
+)
 </template>
 
 <script>
-import CardFinance from './CardFinance';
+import CardFinance from '~/components/finance/CardFinance';
 
 export default {
 	data() {

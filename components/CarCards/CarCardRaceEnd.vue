@@ -1,9 +1,8 @@
 <template lang="pug">
-.car-card-race-end
-	CarCard(
-		:header="status === 'win' && winner || status === 'lost' && loser || status === 'passive-lost' && loser"
-		:status="status"
-	)
+CarCard.car-card-race-end(
+	:header="status === 'win' && winner || status === 'lost' && loser || status === 'passive-lost' && loser"
+	:status="status"
+)
 </template>
 
 <script>
@@ -36,7 +35,7 @@ export default {
 <style lang="scss" scoped>
 .car-card-race-end {
 	display: flex;
-	// width: 100%;
+	width: 100%;
 	height: 100%;
 }
 </style>
