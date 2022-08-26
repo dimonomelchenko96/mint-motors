@@ -1,19 +1,31 @@
 <template lang="pug">
 VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
-	div.carousel__block(v-for="(elem, i) in data")
+	div.carousel__block(v-for="(elem, i) in transformData")
 		div.carousel__margin
 			CarCardGarage(
 					:key="i"
+					:status="activeSlide === i ? transformData[activeSlide].status : passiveStatus[transformData[i].status]"
+				)
+
+	div.carousel__block(v-for="(elem, i) in 15" v-if="data.length < 8")
+		div.carousel__margin
+			CarCardGarage(
+					v-if="i < data.length"
+					:key="i"
 					:status="activeSlide === i ? data[activeSlide].status : passiveStatus[data[i].status]"
 				)
-			//- EmptyCard(v-else).carousel__empty
+			CarCardGarage( 	
+					v-else
+					:status="'empty'"
+				)
+
 			
 	template(#prevArrow)
 		button(class="carousel__arrow" :disabled="data.length < 8 ? activeSlide === 0 : false") 
 			img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-left")
 
 	template(#nextArrow)
-		button(class="carousel__arrow carousel__arrow-right" :disabled="data.length < 8 ? activeSlide === data.length : false")
+		button(class="carousel__arrow carousel__arrow-right" :disabled="data.length < 8 ? activeSlide === data.length - 1 : false")
 			img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
 </template>
 
@@ -23,8 +35,6 @@ import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import CarCardMarket from '~/components/carCards/CarCardMarket';
 import CarCardGarage from '~/components/carCards/CarCardGarage';
 import EmptyCard from '~/components/ui/EmptyCard';
-
-console.log(EmptyCard);
 
 export default {
 	components: {
@@ -65,7 +75,7 @@ export default {
 				let slides = document.querySelectorAll('.slick-slide');
 				slides.forEach(item => {
 					if (
-						item.dataset.index > this.data.length ||
+						item.dataset.index >= this.data.length ||
 						item.dataset.index < 0
 					) {
 						item.style.pointerEvents = 'none';
@@ -76,7 +86,12 @@ export default {
 	},
 	mounted() {
 		this.disableEmptySlide();
-		this.transformData = this.data;
+		this.transformData = [...this.data];
+		let emptyLength = 15 - this.data.length;
+
+		for (let i = 0; i < emptyLength; i++) {
+			this.transformData.push({ status: 'empty' });
+		}
 	},
 };
 </script>

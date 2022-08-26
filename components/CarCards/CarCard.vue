@@ -204,6 +204,8 @@ export default {
 	}
 
 	&__img {
+		width: d(164);
+		height: d(164);
 		img {
 			opacity: 0;
 		}
