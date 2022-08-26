@@ -1,55 +1,46 @@
 <template lang="pug">
 nuxt-link.card-home(
-	:to="'/' + link"
-	:class="'card-home_background-' + param.background"
+	:to="'/' + card.link"
+	:class="'card-home_background-' + card.param.background"
 )
 	.card-home__block(
-		:class="'card-home__block_background-' + param.background"
+		:class="'card-home__block_background-' + card.param.background"
 	)
 
 		.card-home__icon
 			img(
-				v-if="icon"
-				:src="require(`~/assets/svg/home/${icon}.svg`)"
-				:alt="icon"
+				v-if="card.icon"
+				:src="require(`~/assets/svg/home/${card.icon}.svg`)"
+				:alt="card.icon"
 			)
 		.card-home__info
 			h2.card-home__title(
-				:class="['card-home__title_color-' + param.textColor, param.textTransfer && 'card-home__title_text-transfer']"
-			) {{ name }}
+				:class="['card-home__title_color-' + card.param.textColor, card.param.textTransfer && 'card-home__title_text-transfer']"
+			) {{ card.name }}
 
 			.card-home__number(
-				v-if="numderOfCars"
-			) {{ numderOfCars > 9 ? numderOfCars : '0' + numderOfCars }}
+				v-if="card.numderOfCars"
+			) {{ card.numderOfCars > 9 ? card.numderOfCars : '0' + card.numderOfCars }}
 
 			.card-home__arrow(
-				v-if="arrow"
+				v-if="card.arrow"
 			)
 				img(
-					:src="require(`~/assets/svg/home/${arrow}.svg`)"
+					:src="require(`~/assets/svg/home/${card.arrow}.svg`)"
+					:alt="card.arrow"
 				)
 		.card-home__img(
-			:class="['card-home__img_position-' + param.imgPosition, name === 'Finance' && 'card-home__img_finance']"
+			:class="['card-home__img_position-' + card.param.imgPosition, card.name === 'Finance' && 'card-home__img_finance']"
 		)
 				img(
-
-					:src="require(`~/assets/img/home/${image}.png`)"
-					:alt="image"
+					:src="require(`~/assets/img/home/${card.image}.png`)"
+					:alt="card.image"
 				)
 </template>
 
 <script>
 export default {
-	props: [
-		'id',
-		'name',
-		'numderOfCars',
-		'icon',
-		'image',
-		'arrow',
-		'param',
-		'link',
-	],
+	props: ['card'],
 
 	name: 'CardHome',
 
@@ -64,8 +55,6 @@ export default {
 .card-home {
 	height: 100%;
 	position: relative;
-
-	
 
 	&__icon {
 		width: d(38);

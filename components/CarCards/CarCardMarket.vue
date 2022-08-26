@@ -1,10 +1,9 @@
 <template lang="pug">
-.car-card-market
-	CarCard(
-		:header="header"
-		:status="status"
-		:button="button"
-	)
+CarCard.car-card-market(
+	:header="header"
+	:status="status"
+	:button="button"
+)
 </template>
 
 <script>
@@ -35,7 +34,6 @@ export default {
 
 <style lang="scss" scoped>
 .car-card-market {
-	display: flex;
 	width: 100%;
 }
 </style>

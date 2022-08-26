@@ -1,8 +1,8 @@
 <template lang="pug">
-CarCard.car-card-garage(
+CarCard.car-card-slider(
 	:status="status"
-	:button="status === 'broken' ? buttonBroken : buttonRace"
-	:header="status === 'crashed' && isCrashed || status === 'broken' && isBroken || status === 'passive-broken' && isBroken"
+	:button="status === 'active' ? buttonMarket : status === 'broken' ? buttonBroken : buttonRace"
+	:header="status === 'active' && market || status === 'crashed' && isCrashed || status === 'broken' && isBroken || status === 'passive-broken' && isBroken"
 )
 </template>
 
@@ -14,6 +14,11 @@ export default {
 
 	data() {
 		return {
+			market: {
+				icon: 'buy',
+				text: '20 000 MTR',
+			},
+
 			isCrashed: {
 				text: 'Car crashed',
 				icon: 'crashed',
@@ -34,6 +39,11 @@ export default {
 				buttonText: 'Utilize',
 				buttonTheme: 'black',
 				buttonIcon: 'broken',
+			},
+
+			buttonMarket: {
+				buttonText: 'Buy NFT',
+				buttonTheme: 'blue',
 			}
 		};
 	},
@@ -46,7 +56,7 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.car-card-garage {
+.car-card-slider {
 	width: 100%;
 }
 </style>
