@@ -1,24 +1,19 @@
 <template lang="pug">
 VueSlickCarousel(v-bind="settings" @beforeChange='change' ref="carousel")
-	div.carousel__block(v-for="(elem, i) in 15")
+	div.carousel__block(v-for="(elem, i) in data")
 		div.carousel__margin
-			CarCardMarket(
-					v-if="i <= slideOffset"
-					:key="i"
-					:active="activeSlide === i"
-				)
 			CarCardGarage(
-				v-else
-				:active="false"
-				:empty="true"
-			)
+					:key="i"
+					:status="activeSlide === i ? data[activeSlide].status : passiveStatus[data[i].status]"
+				)
+			//- EmptyCard(v-else).carousel__empty
 			
 	template(#prevArrow)
-		button(class="carousel__arrow" :disabled="activeSlide === 0") 
+		button(class="carousel__arrow" :disabled="data.length < 8 ? activeSlide === 0 : false") 
 			img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-left")
 
 	template(#nextArrow)
-		button(class="carousel__arrow carousel__arrow-right" :disabled="activeSlide === slideOffset")
+		button(class="carousel__arrow carousel__arrow-right" :disabled="data.length < 8 ? activeSlide === data.length : false")
 			img(src="@/assets/svg/carousel-arrow.svg" alt="arrow-right")
 </template>
 
@@ -27,24 +22,28 @@ import VueSlickCarousel from 'vue-slick-carousel';
 import 'vue-slick-carousel/dist/vue-slick-carousel-theme.css';
 import CarCardMarket from '~/components/carCards/CarCardMarket';
 import CarCardGarage from '~/components/carCards/CarCardGarage';
+import EmptyCard from '~/components/ui/EmptyCard';
+
+console.log(EmptyCard);
 
 export default {
 	components: {
 		VueSlickCarousel,
 		CarCardMarket,
 		CarCardGarage,
+		EmptyCard,
 	},
-	watch: {
-		// activeSlide(newValue, oldValue) {
-		// 	if (newValue > this.slideOffset) {
-		// 		this.$refs.carousel.prev();
-		// 	}
-		// },
-	},
+	props: ['data'],
 	data() {
 		return {
-			slideOffset: 4,
 			activeSlide: 0,
+			transformData: null,
+			passiveStatus: {
+				normal: 'passive',
+				crashed: 'passive',
+				broken: 'passive-broken',
+			},
+
 			settings: {
 				centerMode: true,
 				centerPadding: '30px',
@@ -59,21 +58,25 @@ export default {
 	methods: {
 		change(prev, next) {
 			this.activeSlide = next;
+			this.$emit('setActiveCard', next);
 		},
 		disableEmptySlide() {
-			let slides = document.querySelectorAll('.slick-slide');
-			slides.forEach(item => {
-				if (
-					item.dataset.index > this.slideOffset ||
-					item.dataset.index < 0
-				) {
-					item.style.pointerEvents = 'none';
-				}
-			});
+			if (this.data.length < 8) {
+				let slides = document.querySelectorAll('.slick-slide');
+				slides.forEach(item => {
+					if (
+						item.dataset.index > this.data.length ||
+						item.dataset.index < 0
+					) {
+						item.style.pointerEvents = 'none';
+					}
+				});
+			}
 		},
 	},
 	mounted() {
 		this.disableEmptySlide();
+		this.transformData = this.data;
 	},
 };
 </script>
@@ -82,6 +85,13 @@ export default {
 .carousel {
 	&__margin {
 		margin: 0 d(5);
+		display: flex;
+		justify-content: center;
+	}
+
+	&__empty {
+		margin-top: d(38);
+		// width: 100%;
 	}
 
 	&__arrow {

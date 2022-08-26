@@ -13,18 +13,17 @@
 			.card__parameter {{item.characteristic}}
 			.card__value-block 
 				.card__value(
-					:class="`card__value_${data.state}`"
+					:class="`card__value_${data.status}`"
 				) {{item.value}}
 				.card__persent(
-					v-if="data.state === 'crashed'"
+					v-if="data.status === 'crashed'"
 				) {{item.percent}} 
 </template>
 
 <script>
 export default {
 	props: ['data'],
-	components: {
-	},
+	components: {},
 };
 </script>
 
@@ -103,7 +102,7 @@ export default {
 			align-items: center;
 			margin-top: d(4);
 		}
-		&_new {
+		&_normal {
 			color: #ffffff;
 		}
 		&_crashed {

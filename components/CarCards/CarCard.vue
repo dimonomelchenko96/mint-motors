@@ -71,8 +71,6 @@ export default {
 	padding: d(10);
 	width: d(184);
 	border-radius: d(10);
-	width: d(200);
-
 
 	&__header {
 		margin-bottom: d(10);
@@ -255,12 +253,11 @@ export default {
 
 	&__icon {
 		::v-deep {
-			svg{
+			svg {
 				path {
 					fill: $pink;
 				}
 			}
-
 		}
 	}
 
@@ -286,7 +283,7 @@ export default {
 
 	&__icon {
 		::v-deep {
-			svg{
+			svg {
 				path {
 					fill: $turquoise;
 				}
@@ -306,7 +303,7 @@ export default {
 
 	&__icon {
 		::v-deep {
-			svg{
+			svg {
 				path {
 					fill: $turquoise;
 				}
@@ -331,7 +328,7 @@ export default {
 
 	&__icon {
 		::v-deep {
-			svg{
+			svg {
 				path {
 					fill: #000;
 				}
@@ -343,7 +340,6 @@ export default {
 		margin-bottom: 0;
 	}
 }
-
 .passive-lost {
 	background-color: $pink;
 	position: relative;
@@ -366,7 +362,7 @@ export default {
 
 	&__icon {
 		::v-deep {
-			svg{
+			svg {
 				path {
 					fill: #000;
 				}
@@ -380,7 +376,7 @@ export default {
 }
 
 .win {
-	background-color: #003DFF;
+	background-color: #003dff;
 	position: relative;
 
 	&__header {
@@ -389,7 +385,7 @@ export default {
 
 	&__icon {
 		::v-deep {
-			svg{
+			svg {
 				path {
 					fill: $turquoise;
 				}
@@ -400,7 +396,7 @@ export default {
 	&__img {
 		position: relative;
 		margin-bottom: 0;
-		
+
 		&::after {
 			content: '';
 			position: absolute;

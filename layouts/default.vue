@@ -33,7 +33,6 @@ export default {
 
 .content {
 	max-width: $max-width;
-
 	position: relative;
 	width: 100vw;
 	height: 100vh;
