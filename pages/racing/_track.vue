@@ -129,6 +129,12 @@ export default {
 
 		&__images {
 			z-index: 1;
+
+			::v-deep {
+				img {
+					border-radius: 0;
+				}
+			}
 		}
 
 		&__players {

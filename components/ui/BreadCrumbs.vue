@@ -65,7 +65,7 @@ export default {
 		margin-right: d(16);
 
 		&.first-bread-crumbs__image {
-			margin-right: d(2);
+			margin-right: d(1.88);
 
 			::v-deep {
 				svg {
@@ -77,30 +77,39 @@ export default {
 
 		&_garage {
 			background: #e05d54;
-			svg {
-				width: d(13);
-				height: d(13);
+			::v-deep {
+				svg {
+					width: d(14);
+					height: d(10);
+				}
 			}
 		}
 		&_market {
 			background: #fced6d;
-			svg {
-				width: d(11);
-				height: d(11);
+			::v-deep {
+				svg {
+					width: d(14);
+					height: d(14);
+				}
 			}
 		}
 		&_racing {
 			background: #fff;
-			svg {
-				width: d(11);
-				height: d(11);
+
+			::v-deep {
+				svg {
+					width: d(26);
+					height: d(14);
+				}
 			}
 		}
 		&_finance {
 			background: #6dfcc8;
-			svg {
-				width: d(14);
-				height: d(11);
+			::v-deep {
+				svg {
+					width: d(18);
+					height: d(18);
+				}
 			}
 		}
 	}

@@ -6,14 +6,12 @@
 </template>
 
 <script>
-import img1 from '~/assets/img/racing/Frame 66.png';
 import img2 from '~/assets/img/racing/Frame 74.png';
 export default {
 	name: 'TrackDayBackgroundImage',
 
 	data() {
 		return {
-			img1,
 			img2,
 		};
 	},
