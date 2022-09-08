@@ -26,7 +26,7 @@ header.header
 			:trackNumber="trackNumber"
 		)
 	nuxt-link(
-		to="/market"
+		to="/finance"
 	)
 		BalanceHeader(
 			:balance = "balance",
@@ -145,6 +145,7 @@ export default {
 				font-weight: 400;
 				font-size: d(14);
 				color: rgba(255, 255, 255, 0.3);
+				margin-top: d(2);
 			}
 
 			&.active {

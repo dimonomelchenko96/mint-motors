@@ -110,14 +110,15 @@ export default {
 		align-items: center;
 		margin-left: d(6);
 		margin-right: d(16);
+		height: d(42);
 
 		p {
 			font-family: 'Zen Dots';
 			font-style: normal;
 			font-weight: 400;
 			font-size: d(14);
-			line-height: d(42);
 			color: #ffffff;
+			margin-top: d(2);
 		}
 	}
 
