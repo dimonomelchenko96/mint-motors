@@ -45,8 +45,8 @@ export default {
 		return {
 			amount: 34.55,
 			change: '+3% (3.55$)',
-		}
-	}
+		};
+	},
 };
 </script>
 
@@ -64,6 +64,7 @@ export default {
 		justify-content: center;
 		align-items: flex-end;
 		margin-bottom: d(70);
+		height: 25vh;
 	}
 
 	&__info {
@@ -75,10 +76,12 @@ export default {
 	}
 
 	&__img {
-		img{
+		height: 100%;
+
+		img {
 			width: 100vw;
+			height: 100%;
 		}
-		
 	}
 
 	&__cards {
@@ -95,7 +98,7 @@ export default {
 	}
 
 	&__text {
-		font-family: "Zen Dots";
+		font-family: 'Zen Dots';
 		font-size: d(12);
 		line-height: d(42);
 		font-weight: 400;
@@ -135,7 +138,7 @@ export default {
 
 .currency {
 	display: flex;
-	
+
 	&__img {
 		width: d(46);
 		height: d(46);
