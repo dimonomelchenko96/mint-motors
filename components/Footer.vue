@@ -1,7 +1,10 @@
 <template lang="pug">
 footer.footer
-    Logo.footer__logo
-    TokenUser.footer__token(
+	nuxt-link(
+		to="/"
+	)
+		Logo.footer__logo
+	TokenUser.footer__token(
 		:token="'assadsad1234567asdasd89'"
 	)
 </template>

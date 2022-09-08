@@ -25,9 +25,12 @@ header.header
 			:thirdParam="thirdParam"
 			:trackNumber="trackNumber"
 		)
-	BalanceHeader(
-		:balance = "balance",
+	nuxt-link(
+		to="/market"
 	)
+		BalanceHeader(
+			:balance = "balance",
+		)
 </template>
 
 <script>
@@ -113,6 +116,7 @@ export default {
 .header {
 	display: flex;
 	justify-content: space-between;
+	align-items: center;
 	z-index: 100;
 	.navigation {
 		display: flex;
