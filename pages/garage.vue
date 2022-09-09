@@ -7,6 +7,20 @@
 		CarCharacteristicsBlock(
             :data="data[activeCard]"
 		)
+
+	.garage__button-block
+		Button.garage__button(
+			v-if='data[activeCard].status ===  "crashed" || data[activeCard].status ===  "normal"'
+			buttonIcon="testdrive"
+			buttonText="Test Drive"
+			theme="gray"
+		)
+		Button.garage__button(
+			v-if='data[activeCard].status ===  "crashed"'
+			buttonIcon="arrow"
+			buttonText="Repair"
+			theme="blue"
+		)
 	Carousel.garage__carousel(
 		:data="data"
 		@setActiveCard='setActiveCard'
@@ -22,6 +36,7 @@ import CarCardTrack from '~/components/carCards/CarCardTrack';
 import CarCardRaceEnd from '~/components/carCards/CarCardRaceEnd';
 import CarCharacteristicsBlock from '~/components/CarCharacteristicsBlock';
 import Carousel from '~/components/carousels/Carousel';
+import Button from '~/components/button/MainButton';
 
 export default {
 	name: 'Garage',
@@ -33,6 +48,7 @@ export default {
 		CarCardTrack,
 		CarCardRaceEnd,
 		Carousel,
+		Button
 	},
 
 	mounted() {
@@ -314,6 +330,19 @@ export default {
 
 		&_1 {
 			width: d(200);
+		}
+	}
+
+	&__button {
+		&:not(:last-child) {
+			margin-bottom: d(8);
+		}
+		&-block {
+			position: absolute;
+			bottom: d(300);
+			left: d(38);
+			width: d(162);
+			z-index: 10;
 		}
 	}
 
