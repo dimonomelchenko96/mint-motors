@@ -1,13 +1,18 @@
 <template lang="pug">
-.track-price
+.track-price(
+	:class="status"
+)
 	span.track-price__text(
-			:class="[$route.fullPath === '/racing' && 'track-price__text_opacity', isPaid &&  'track-price__text_green']"
+			:class="[$route.fullPath === '/racing' && 'track-price__text_opacity', isPaid && 'track-price__text_green', status && 'track-price__text_' + `${status}`]"
 		) Participation price
-	.track-price__reward
+	.track-price__reward(
+		:class="status && 'track-price__reward_' + `${status}`"
+	)
 		IconToken.track-price__reward_icon
 		span.track-price__text.track-price__text_reward {{priceView}} mrt
 		.track-price__paid(
-			v-if="isPaid"
+			v-if="[isPaid || status === 'track-end']"
+			:class="status && 'track-price__paid_' + `${status}`"
 		)
 			include ../../../assets/svg/racing/check.svg
 			span Paid
@@ -22,7 +27,7 @@ export default {
 	components: {
 		IconToken,
 	},
-	props: ['price'],
+	props: ['price', 'status'],
 
 	computed: {
 		...mapState({
@@ -63,6 +68,10 @@ export default {
 		font-size: d(12);
 		color: #fff;
 
+		&_track-end {
+			color: $black;
+		}
+
 		&_opacity {
 			color: rgba(255, 255, 255, 0.3);
 		}
@@ -85,6 +94,12 @@ export default {
 			height: d(18);
 			margin-right: d(18);
 		}
+
+		&_track-end {
+			span {
+				color: $black;
+			}
+		}
 	}
 	&__paid {
 		color: #6dfcc8;
@@ -106,6 +121,19 @@ export default {
 				fill: #6dfcc8;
 			}
 		}
+
+		&_track-end {
+			svg {
+				path {
+					fill: $black;
+				}
+			}
+		}
 	}
+}
+
+.track-end {
+	filter: grayscale(1);
+	background: #a1a9ad;
 }
 </style>

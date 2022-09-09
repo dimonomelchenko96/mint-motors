@@ -1,5 +1,7 @@
 <template lang="pug">
-.track-1st-reward
+.track-1st-reward(
+	:class="status"
+)
 	span.track-1st-reward__text.span.track-1st-reward__text_opacity 1-st Reward
 	IconToken.track-1st-reward__icon
 	span.track-1st-reward__text.track-1st-reward__text_reward {{rewardView}} mrt
@@ -11,7 +13,7 @@ import IconToken from '~/components/ui/IconToken';
 export default {
 	name: 'TrackDay1stReward',
 
-	props: ['reward'],
+	props: ['reward', 'status'],
 
 	components: {
 		IconToken,
@@ -69,5 +71,15 @@ export default {
 			text-transform: uppercase;
 		}
 	}
+}
+
+.track-end {
+	background: #a1a9ad;
+	filter: grayscale(1);
+}
+
+.winner {
+	background: #a1a9ad;
+	filter: grayscale(1);
 }
 </style>

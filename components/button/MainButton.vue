@@ -33,7 +33,7 @@ export default {
 	}
 
 	&_blue {
-		background: #001aff;
+		background: $blue;
 		color: #ffffff;
 	}
 

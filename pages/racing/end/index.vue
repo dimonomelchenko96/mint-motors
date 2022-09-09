@@ -7,6 +7,7 @@
 				TrackDayPlayers.track-day__players(
 					:allPlayers="allPlayers"
 					:currentPlayers="currentPlayers"
+					:status="status"
 				)
 				TrackDayTitle.track-day__title(
 					:title="title"
@@ -14,28 +15,43 @@
 			.container__reward
 				TrackDay1stReward.track-day__reward(
 					:reward="reward"
+					:status="status"
 				)
 				TrackDay2ndReward(
 					:reward="reward2nd"
 				)
 		
 		TrackDayPrice.track-day__price(
+			v-if="status !== 'winner'"
 			:price="price"
+			:status="status"
 		)
+		.track-day__price.track-day__price_win(
+			v-else
+		)
+			.win-amount
+				.win-amount__icon
+					include ../../../assets/svg/car-card/cup.svg
+				TrackDay1stReward.win-amount__sum(
+					:reward="reward"
+				)
+			
+			.track-day__button Claim reward
+
 	.track__players
 		CarCardTrack.track__players__card(
-			:status="'track-empty'"
+			:status="'passive-lost'"
 		)
 
 		CarCardTrack.track__players__card(
-			:status="'track-connect'"
+			:status="'passive-lost'"
 		)
 
 		CarCardTrack.track__players__card(
-			:status="'player'"
+			:status="'win'"
 		)
 		CarCardTrack.track__players__card(
-			:status="'my-car'"
+			:status="'passive-lost'"
 		)
 		//- .track__players__card
 		//- 	.card-await
@@ -58,7 +74,7 @@
 		//- 		span Await player
 		//- 	EmptyCard
 	MainButton.track__button(
-		:buttonText="'start race'"
+		:buttonText="'start new race'"
 		:buttonIcon="'race'"
 		@click.native="$store.commit('racing/isPaidToggle')"
 	)
@@ -81,6 +97,7 @@ export default {
 
 	data() {
 		return {
+			status: 'winner',
 			trackId: '',
 			// TrackDayPlayers
 			allPlayers: 4,
@@ -169,10 +186,33 @@ export default {
 
 			border-radius: d(12);
 			z-index: 10;
+
+			&_win {
+				display: flex;
+				justify-content: space-between;
+				align-items: center;
+			}
 		}
 
 		&__reward {
 			margin-bottom: d(21);
+		}
+
+		&__button {
+			font-family: 'Zen Dots';
+			font-style: normal;
+			font-weight: 400;
+			font-size: d(12);
+			letter-spacing: 0.01em;
+			color: #fff;
+
+			padding: 0 d(25);
+			background-color: #2657f2;
+			height: 100%;
+			border-radius: d(17);
+
+			display: flex;
+			align-items: center;
 		}
 	}
 	&__players {
@@ -206,13 +246,47 @@ export default {
 		width: d(272);
 		justify-content: space-between;
 		padding-left: d(16);
-		padding-right: d(82);
+		padding-right: d(62);
 		margin: 0 auto;
 		cursor: pointer;
 		position: absolute;
 		bottom: d(49);
 		left: 50%;
 		transform: translate(-50%, -50%);
+	}
+}
+
+.win-amount {
+	display: flex;
+	padding: d(7) d(16);
+	height: d(35);
+	width: fit-content;
+	background-color: $black;
+
+	border-radius: d(17);
+
+	&__icon {
+		height: 100%;
+
+		svg {
+			height: 100%;
+			width: 100%;
+		}
+	}
+
+	&__sum {
+		background: none;
+
+		::v-deep {
+			span {
+				line-height: d(12) !important;
+			}
+
+			.track-1st-reward__text_opacity {
+				opacity: 1;
+				color: #fced6d;
+			}
+		}
 	}
 }
 </style>

@@ -2,7 +2,7 @@
 CarCard.car-card-slider(
 	:status="status"
 	:button="status === 'active' ? buttonMarket : status === 'broken' ? buttonBroken : buttonRace"
-	:header="status === 'active' && market || status === 'crashed' && isCrashed || status === 'broken' && isBroken || status === 'passive-broken' && isBroken"
+	:header="status === 'active' && market || status === 'passive-market' && market || status === 'crashed' && isCrashed || status === 'broken' && isBroken || status === 'passive-broken' && isBroken"
 )
 </template>
 
@@ -26,7 +26,7 @@ export default {
 
 			isBroken: {
 				text: 'Car broken',
-				icon: 'broken'
+				icon: 'broken',
 			},
 
 			buttonRace: {
@@ -44,13 +44,13 @@ export default {
 			buttonMarket: {
 				buttonText: 'Buy NFT',
 				buttonTheme: 'blue',
-			}
+			},
 		};
 	},
 	methods: {},
 
 	components: {
-		CarCard
+		CarCard,
 	},
 };
 </script>

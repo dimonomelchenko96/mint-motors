@@ -1,6 +1,6 @@
 <template lang="pug">
 CarCard.car-card-track(
-	:header="status === 'track-empty' && awaitPlayer || status === 'track-connect' && awaitPlayer || status === 'player' && player ||status === 'my-car' && myCar"
+	:header="status === 'track-empty' && awaitPlayer || status === 'track-connect' && awaitPlayer || status === 'player' && player || status === 'my-car' && myCar || status === 'passive-lost' && lost || status === 'lost' && youLost || status === 'win' && win"
 	:status="status"
 )
 </template>
@@ -18,15 +18,30 @@ export default {
 				text: 'Await player',
 			},
 
-			player: {
+			lost: {
 				icon: 'player',
-				text: 'Player 1',
+				text: 'Lost! Player 1',
 			},
 
 			myCar: {
 				icon: 'player',
 				text: 'My car',
-			}
+			},
+
+			win: {
+				icon: 'player',
+				text: 'WIN! Player 3',
+			},
+
+			youWin: {
+				icon: 'player',
+				text: 'You WIN!',
+			},
+
+			youLost: {
+				icon: 'player',
+				text: 'You lost',
+			},
 		};
 	},
 	methods: {},
@@ -40,7 +55,7 @@ export default {
 <style lang="scss" scoped>
 .car-card-track {
 	display: flex;
+	flex-direction: column;
 	width: 100%;
-	height: 100%;
 }
 </style>
