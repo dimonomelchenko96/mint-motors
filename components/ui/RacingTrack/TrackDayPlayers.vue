@@ -20,7 +20,7 @@
 	div(
 		v-else
 	)
-	span {{ status === 'winner' ? 'Winner' : 'Finished'}}
+		span {{ status === 'winner' ? 'Winner' : 'Finished'}}
 </template>
 
 <script>

@@ -42,6 +42,10 @@ export default {
 				icon: 'player',
 				text: 'You lost',
 			},
+			player: {
+				icon: 'player',
+				text: 'PLayer 1',
+			},
 		};
 	},
 	methods: {},

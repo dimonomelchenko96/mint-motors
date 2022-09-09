@@ -102,7 +102,8 @@ export default {
 			align-items: center;
 			margin-top: d(4);
 		}
-		&_normal {
+		&_normal,
+		&_active {
 			color: #ffffff;
 		}
 		&_crashed {

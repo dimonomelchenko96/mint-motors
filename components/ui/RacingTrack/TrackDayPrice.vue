@@ -11,7 +11,7 @@
 		IconToken.track-price__reward_icon
 		span.track-price__text.track-price__text_reward {{priceView}} mrt
 		.track-price__paid(
-			v-if="[isPaid || status === 'track-end']"
+			v-if="isPaid || status === 'track-end'"
 			:class="status && 'track-price__paid_' + `${status}`"
 		)
 			include ../../../assets/svg/racing/check.svg
