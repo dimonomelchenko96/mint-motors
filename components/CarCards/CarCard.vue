@@ -376,14 +376,20 @@ export default {
 		::v-deep {
 			svg {
 				path {
-					fill: #000;
+					fill: #003dff;
 				}
 			}
 		}
 	}
 
 	&__img {
+		display: flex;
 		margin-bottom: 0;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
 	}
 }
 .passive-lost {
@@ -399,7 +405,7 @@ export default {
 		left: 0;
 		top: 0;
 		transition: opacity 0.6s;
-		border-radius: d(5);
+		border-radius: d(10);
 	}
 
 	&__header {
@@ -410,7 +416,7 @@ export default {
 		::v-deep {
 			svg {
 				path {
-					fill: #000;
+					fill: #003dff;
 				}
 			}
 		}

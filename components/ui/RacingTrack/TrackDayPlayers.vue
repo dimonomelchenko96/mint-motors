@@ -1,6 +1,6 @@
 <template lang="pug">
 .track-players(
-	:class="[currentPlayers === allPlayers && 'track-players_green']"
+	:class="[currentPlayers === allPlayers && 'track-players_green', status]"
 )
 	.track-players__icon.track-players__human(
 		v-if="currentPlayers !== allPlayers"
@@ -10,17 +10,24 @@
 		v-else
 	)
 		include ../../../assets/svg/racing/check.svg
-	span {{currentPlayers}}
-	span /
-	span.track-players__all-players {{allPlayers}}
-	span {{ $route.fullPath === '/racing' && 'players' || currentPlayers === allPlayers ? 'players' : 'await players'}}
+	div(
+		v-if="!status"
+	)
+		span {{currentPlayers}}
+		span /
+		span.track-players__all-players {{allPlayers}}
+		span {{ $route.fullPath === '/racing' && 'players' || currentPlayers === allPlayers ? 'players' : 'await players'}}
+	div(
+		v-else
+	)
+	span {{ status === 'winner' ? 'Winner' : 'Finished'}}
 </template>
 
 <script>
 export default {
 	name: 'TrackDayPlayers',
 
-	props: ['allPlayers', 'currentPlayers', 'titlePlayers'],
+	props: ['allPlayers', 'currentPlayers', 'titlePlayers', 'status'],
 };
 </script>
 
@@ -71,5 +78,14 @@ export default {
 	&__all-players {
 		margin-right: d(5);
 	}
+}
+
+.track-end {
+	width: d(137) !important;
+	background: #a1a9ad;
+}
+
+.winner {
+	width: d(137) !important;
 }
 </style>
