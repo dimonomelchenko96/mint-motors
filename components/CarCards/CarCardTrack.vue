@@ -26,7 +26,7 @@ export default {
 			myCar: {
 				icon: 'player',
 				text: 'My car',
-			}
+			},
 		};
 	},
 	methods: {},
@@ -40,6 +40,7 @@ export default {
 <style lang="scss" scoped>
 .car-card-track {
 	display: flex;
+	flex-direction: column;
 	width: 100%;
 	height: 100%;
 }

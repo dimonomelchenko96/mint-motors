@@ -143,6 +143,33 @@ export default {
 	}
 }
 
+.passive-market {
+	background-color: transparent;
+	& .car-card__img {
+		position: relative;
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 100%;
+			height: 98%;
+			background: rgba(0, 0, 0, 0.7);
+			left: 0;
+			top: 0;
+			transition: opacity 0.6s;
+			border-radius: d(5);
+		}
+	}
+
+	&__block {
+		opacity: 0.7;
+	}
+
+	&__button {
+		display: none;
+	}
+}
+
 .normal {
 	&__block {
 		opacity: 0;
@@ -233,13 +260,15 @@ export default {
 	}
 
 	&__img {
+		margin-bottom: 0;
+
 		img {
 			opacity: 0;
 		}
 	}
 
 	&__component {
-		height: 100%;
+		// height: 100%;
 		width: 100%;
 
 		position: absolute;
@@ -265,13 +294,15 @@ export default {
 	}
 
 	&__img {
+		margin-bottom: 0;
+
 		img {
 			opacity: 0;
 		}
 	}
 
 	&__component {
-		height: 100%;
+		// height: 100%;
 		width: 100%;
 
 		position: absolute;
@@ -295,7 +326,13 @@ export default {
 	}
 
 	&__img {
+		display: flex;
 		margin-bottom: 0;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
 	}
 }
 
@@ -315,7 +352,13 @@ export default {
 	}
 
 	&__img {
+		display: flex;
 		margin-bottom: 0;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
 	}
 
 	&__text {
@@ -374,7 +417,13 @@ export default {
 	}
 
 	&__img {
+		display: flex;
 		margin-bottom: 0;
+
+		img {
+			height: 100%;
+			width: 100%;
+		}
 	}
 }
 

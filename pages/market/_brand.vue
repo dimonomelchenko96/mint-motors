@@ -56,7 +56,7 @@ export default {
 					endProd: 2002,
 					brand: 'BMW',
 
-					status: 'normal',
+					status: 'active',
 					params: [
 						{
 							characteristic: 'Power',
@@ -80,7 +80,7 @@ export default {
 					endProd: 2002,
 					brand: 'BMW',
 
-					status: 'normal',
+					status: 'active',
 					params: [
 						{
 							characteristic: 'Power',
@@ -104,7 +104,7 @@ export default {
 					endProd: 2002,
 					brand: 'BMW',
 
-					status: 'normal',
+					status: 'active',
 					params: [
 						{
 							characteristic: 'Power',
@@ -128,7 +128,7 @@ export default {
 					endProd: 2002,
 					brand: 'BMW',
 
-					status: 'normal',
+					status: 'active',
 					params: [
 						{
 							characteristic: 'Power',
@@ -152,7 +152,7 @@ export default {
 					endProd: 2002,
 					brand: 'BMW',
 
-					status: 'normal',
+					status: 'active',
 					params: [
 						{
 							characteristic: 'Power',
@@ -176,7 +176,7 @@ export default {
 					endProd: 2002,
 					brand: 'BMW',
 
-					status: 'normal',
+					status: 'active',
 					params: [
 						{
 							characteristic: 'Power',
@@ -200,7 +200,7 @@ export default {
 					endProd: 2002,
 					brand: 'BMW',
 
-					status: 'normal',
+					status: 'active',
 					params: [
 						{
 							characteristic: 'Power',

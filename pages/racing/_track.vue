@@ -23,26 +23,40 @@
 			:price="price"
 		)
 	.track__players
-		.track__players__card
-			.card-await
-				include ../../assets/svg/racing/human.svg
-				span Await player
-			EmptyCard
-		.track__players__card
-			.card-await
-				include ../../assets/svg/racing/human.svg
-				span Await player
-			EmptyCard
-		.track__players__card
-			.card-await
-				include ../../assets/svg/racing/human.svg
-				span Await player
-			EmptyCard
-		.track__players__card
-			.card-await
-				include ../../assets/svg/racing/human.svg
-				span Await player
-			EmptyCard
+		CarCardTrack.track__players__card(
+			:status="'track-empty'"
+		)
+
+		CarCardTrack.track__players__card(
+			:status="'track-connect'"
+		)
+
+		CarCardTrack.track__players__card(
+			:status="'player'"
+		)
+		CarCardTrack.track__players__card(
+			:status="'my-car'"
+		)
+		//- .track__players__card
+		//- 	.card-await
+		//- 		include ../../assets/svg/racing/human.svg
+		//- 		span Await player
+		//- 	EmptyCard
+		//- .track__players__card
+		//- 	.card-await
+		//- 		include ../../assets/svg/racing/human.svg
+		//- 		span Await player
+		//- 	EmptyCard
+		//- .track__players__card
+		//- 	.card-await
+		//- 		include ../../assets/svg/racing/human.svg
+		//- 		span Await player
+		//- 	EmptyCard
+		//- .track__players__card
+		//- 	.card-await
+		//- 		include ../../assets/svg/racing/human.svg
+		//- 		span Await player
+		//- 	EmptyCard
 	MainButton.track__button(
 		:buttonText="'start race'"
 		:buttonIcon="'race'"
@@ -60,6 +74,7 @@ import TrackDay2ndReward from '~/components/ui/RacingTrack/TrackDay2ndReward.vue
 import TrackDayPrice from '~/components/ui/RacingTrack/TrackDayPrice.vue';
 import EmptyCard from '~/components/ui/EmptyCard.vue';
 import MainButton from '~/components/button/MainButton.vue';
+import CarCardTrack from '~/components/carCards/CarCardTrack.vue';
 
 export default {
 	name: 'Racing-track',
@@ -94,6 +109,7 @@ export default {
 		TrackDayPrice,
 		EmptyCard,
 		MainButton,
+		CarCardTrack,
 	},
 };
 </script>
@@ -165,6 +181,8 @@ export default {
 		align-items: center;
 		gap: d(44);
 		height: 42vh;
+		width: 60%;
+		margin: 0 auto;
 
 		&__card {
 			font-family: 'Zen Dots';

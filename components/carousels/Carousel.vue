@@ -52,7 +52,7 @@ export default {
 				normal: 'passive',
 				crashed: 'passive',
 				broken: 'passive-broken',
-				active: 'passive',
+				active: 'passive-market',
 			},
 
 			settings: {
